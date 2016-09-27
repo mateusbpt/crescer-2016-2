@@ -25,10 +25,51 @@ public class ElfoTest
     }
 
     @Test
-    public void elfoAtiraFlechas() {
+    public void elfoFlechas() {
     //Act
     Elfo elfoDasFlechas = new Elfo ("Legolas");
     //Assert
     assertEquals(42, elfoDasFlechas.getFlecha().getQuantidade()); 
-    }    
+    }  
+    
+    @Test
+    public void elfoPerdeFlechas() {
+    //Act
+    Elfo elfoPerdeFlechas = new Elfo ("Legolas");
+    elfoPerdeFlechas.atirarFlecha();
+    //Assert
+    assertEquals(41, elfoPerdeFlechas.getFlecha().getQuantidade()); 
+    } 
+    
+    @Test
+    public void elfoPerdeFlechas2() {
+    //Act
+    Elfo elfoPerdeFlechas2 = new Elfo ("Legolas 2");
+    int i = 5;
+    int num = 42;
+    while(i != 0){
+    elfoPerdeFlechas2.atirarFlecha();
+    i--;
+    num--;
+    }
+    //Assert
+    assertEquals(num, elfoPerdeFlechas2.getFlecha().getQuantidade()); 
+    } 
+    
+    @Test
+    public void elfoPerdeFlechas3() {
+    //Act
+    Elfo elfoPerdeFlechas3 = new Elfo ("Legolas 3");
+    int i = 5;
+    int num = 42;
+    while(i != 0){
+    elfoPerdeFlechas3.atirarFlecha();
+    elfoPerdeFlechas3.atirarFlecha();
+    i--;
+    num = num-2;
+    }
+    //Assert
+    assertEquals(num, elfoPerdeFlechas3.getFlecha().getQuantidade()); 
+    } 
+    
 }
