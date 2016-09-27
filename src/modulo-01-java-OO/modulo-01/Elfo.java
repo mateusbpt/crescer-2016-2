@@ -23,7 +23,7 @@ public class Elfo {
     }
     
     public Item getFlecha() {
-        return arco;
+        return flecha;
     }
     
     public void atirarFlecha() {
