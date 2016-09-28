@@ -68,5 +68,22 @@ public class ElfoTest
         //Assert
         assertEquals(0, i); 
     } 
+    
+    @Test
+    public void elfoDivideDezLembas() {
+        //Act
+        CestoDeLembas cesto1 = new CestoDeLembas(10);
+        //Assert    
+        assertEquals(true, cesto1.podeDividirEmPares()); 
 
-}
+    } 
+    
+    @Test
+    public void elfoNãoDivideTresLembas() {
+        //Act
+        CestoDeLembas cesto2 = new CestoDeLembas(10);
+        //Assert    
+        assertEquals(false, cesto2.podeDividirEmPares()); 
+
+    } 
+}    
