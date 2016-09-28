@@ -8,7 +8,7 @@ public class Elfo {
     public Elfo(String n) {
         nome = n;
         arco = new Item("Arco", 1);
-        flecha = new Item("Flechas", 2);
+        flecha = new Item("Flechas", 42);
         dwarves = 110;
     }
 
@@ -27,7 +27,11 @@ public class Elfo {
     public Item getFlecha() {
         return flecha;
     }
-
+    
+    public int getDwarves() {
+        return dwarves;
+    }
+    
     public void atirarFlecha() {
         if(flecha.getQuantidade() > 0){ //garante que o elfo não possua flechas negativas
             flecha.setQuantidade(flecha.getQuantidade() - 1);
