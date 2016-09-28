@@ -29,6 +29,7 @@ public class ElfoTest
         //Act
         Elfo elfoTeste = new Elfo ("Legolas");
         //Assert
+        assertEquals("Flechas", elfoTeste.getFlecha().getDescricao()); 
         assertEquals(42, elfoTeste.getFlecha().getQuantidade()); 
     }  
 
