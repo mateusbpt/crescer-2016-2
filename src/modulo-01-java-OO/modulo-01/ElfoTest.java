@@ -158,5 +158,15 @@ public class ElfoTest
         assertEquals("Flechas", elfoTeste10.getFlecha().getDescricao()); 
         assertEquals(200, elfoTeste10.getFlecha().getQuantidade()); 
 
+    }
+    
+    @Test
+    public void elfoComFlechasNegativas(){ 
+        //Act
+        Elfo elfoTeste10 = new Elfo ("Arwen", -100);
+        //Assert
+        assertEquals("Flechas", elfoTeste10.getFlecha().getDescricao()); 
+        assertEquals(42, elfoTeste10.getFlecha().getQuantidade()); 
+
     }   
 }

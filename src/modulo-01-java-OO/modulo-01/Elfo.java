@@ -3,27 +3,27 @@ public class Elfo {
     private Item arco;
     private Item flecha;
     private int experiencia;
+    
 
     public Elfo(String n) {
-        nome = n;
-        arco = new Item("Arco", 1);
-        flecha = new Item("Flechas", 42);
+        //Chama construtor debaixo
+        this(n, 42);
     }
-    
+
     public Elfo(String n, int quantidadeFlechas) {
         nome = n;
         arco = new Item("Arco", 1);
-        flecha = new Item("Flechas", quantidadeFlechas);
+        flecha = new Item("Flechas", quantidadeFlechas  >= 0 ? quantidadeFlechas : 42);
     }
 
     public String toString(){
-       boolean flechaNoSingular = this.flecha.getQuantidade() == 1;
-       boolean experienciaNoSingular = this.experiencia == 1;
+        boolean flechaNoSingular = this.flecha.getQuantidade() == 1;
+        boolean experienciaNoSingular = this.experiencia == 1;
         return String.format("%s possui %d %s e %d %s de experiência.",this.nome, this.flecha.getQuantidade(),
-        flechaNoSingular ? "flecha":"flechas", this.experiencia, experienciaNoSingular ? "nível":"níveis");
-       
+            flechaNoSingular ? "flecha":"flechas", this.experiencia, experienciaNoSingular ? "nível":"níveis");
+
     }    
-        
+
     public void setNome(String n) {
         nome = n;
     }
@@ -39,7 +39,7 @@ public class Elfo {
     public int getExperiencia() {
         return experiencia;
     }
-    
+
     public Item getFlecha() {
         return flecha;
     }
