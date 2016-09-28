@@ -130,4 +130,33 @@ public class ElfoTest
         //Assert
         assertEquals("Legolas possui 0 flechas e 42 níveis de experiência", elfoTeste7.toString());
     }
-}    
+
+    @Test
+    public void elfoComecaComUmaFlecha(){
+        //Act
+        Elfo elfoTeste8 = new Elfo ("Legolas", 1);
+        //Assert
+        assertEquals("Flechas", elfoTeste8.getFlecha().getDescricao()); 
+        assertEquals(1, elfoTeste8.getFlecha().getQuantidade()); 
+
+    }    
+
+    @Test
+    public void elfoComecaComDezFlechas(){  
+        //Act
+        Elfo elfoTeste9 = new Elfo ("Legolas", 10);
+        //Assert
+        assertEquals("Flechas", elfoTeste9.getFlecha().getDescricao()); 
+        assertEquals(10, elfoTeste9.getFlecha().getQuantidade()); 
+    }
+
+    @Test
+    public void elfoComecaComDuzentasFlechas(){ 
+        //Act
+        Elfo elfoTeste10 = new Elfo ("Arwen", 200);
+        //Assert
+        assertEquals("Flechas", elfoTeste10.getFlecha().getDescricao()); 
+        assertEquals(200, elfoTeste10.getFlecha().getQuantidade()); 
+
+    }   
+}
