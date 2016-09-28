@@ -35,8 +35,9 @@ public class ElfoTest
 
     @Test
     public void elfoAtiraUmaFlecha() {
-        //Act
+        // Arrange
         Elfo elfoTeste1 = new Elfo ("Legolas 1");
+        //Act
         elfoTeste1.atirarFlecha();
         //Assert
         assertEquals(41, elfoTeste1.getFlecha().getQuantidade()); 
@@ -44,30 +45,32 @@ public class ElfoTest
 
     @Test
     public void elfoAtiraDezFlechas() {
-        //Act
+        //Arrange
         Elfo elfoTeste2 = new Elfo ("Arwen");
-        int i = 10;
-        int num = 42;
-        while(i != 0){
+        //Act
+        int numeroflechasUsadas = 10;
+        int numeroFlechasTotal = elfoTeste2.getFlecha().getQuantidade();
+        while(numeroflechasUsadas != 0){
             elfoTeste2.atirarFlecha();
-            i--;
-            num--;
+            numeroflechasUsadas--;
+            numeroFlechasTotal--;
         }
         //Assert
-        assertEquals(num, elfoTeste2.getFlecha().getQuantidade()); 
+        assertEquals(numeroFlechasTotal, elfoTeste2.getFlecha().getQuantidade()); 
     } 
 
     @Test
     public void elfoAtiraTodasAsFlechas() {
-        //Act
+        //Arrange
         Elfo elfoTeste3 = new Elfo ("Galadriel");
-        int i = elfoTeste3.getFlecha().getQuantidade();
-        while(i != 0){
+        //Act
+        int numeroFlechasTotal = elfoTeste3.getFlecha().getQuantidade();
+        while(numeroFlechasTotal != 0){
             elfoTeste3.atirarFlecha();
-            i--;
+            numeroFlechasTotal --;
         }
         //Assert
-        assertEquals(0, i); 
+        assertEquals(0, numeroFlechasTotal); 
     } 
 
     @Test
@@ -76,7 +79,6 @@ public class ElfoTest
         CestoDeLembas cesto1 = new CestoDeLembas(10);
         //Assert    
         assertEquals(true, cesto1.podeDividirEmPares()); 
-
     } 
 
     @Test
@@ -85,28 +87,29 @@ public class ElfoTest
         CestoDeLembas cesto2 = new CestoDeLembas(3);
         //Assert    
         assertEquals(false, cesto2.podeDividirEmPares()); 
-
     } 
 
     @Test
-    public void elfoAtacouDwarvesUmaVez(){
-        //Act
+    public void elfoAtacouDwarfUmaVez(){
+        //Arrange
         Elfo elfoTeste4 = new Elfo ("Galadriel 1");
-        elfoTeste4.atacarDwarves();
+        //Act
+        elfoTeste4.atacarDwarf();
         //Assert
-        assertEquals(100, elfoTeste4.getDwarves()); 
+        assertEquals(100, elfoTeste4.getDwarf()); 
     }
 
     @Test
-    public void elfoMatouDwarves(){
-        //Act
+    public void elfoMatouUmDwarf(){
+        //Arrange
         Elfo elfoTeste5 = new Elfo ("Galadriel 2");
+        //Act
         int i = 11;    
         while(i > 0){
             elfoTeste5.atacarDwarves();
             i--;
         }
         //Assert
-        assertEquals(0, elfoTeste5.getDwarves()); 
+        assertEquals(0, elfoTeste5.getDwarf()); 
     }
 }    

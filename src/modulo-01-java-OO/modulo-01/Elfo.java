@@ -3,13 +3,13 @@ public class Elfo {
     private Item arco;
     private Item flecha;
     private int experiencia;
-    private int dwarves;
+    private int dwarf;
 
     public Elfo(String n) {
         nome = n;
         arco = new Item("Arco", 1);
         flecha = new Item("Flechas", 42);
-        dwarves = 110;
+        dwarf = 110;
     }
 
     public void setNome(String n) {
@@ -28,8 +28,8 @@ public class Elfo {
         return flecha;
     }
     
-    public int getDwarves() {
-        return dwarves;
+    public int getDwarf() {
+        return dwarf;
     }
     
     public void atirarFlecha() {
@@ -39,10 +39,10 @@ public class Elfo {
         } 
     }
 
-    public void atacarDwarves() {
+    public void atacarDwarf() {
         atirarFlecha();
-        if(dwarves > 0 && flecha.getQuantidade() > 0){
-            dwarves -= 10;
+        if(dwarf > 0 && flecha.getQuantidade() > 0){
+            dwarf -= 10;
         }
     }
     /*public void atirarFlechaRefactory() {
