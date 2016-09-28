@@ -10,6 +10,10 @@ public class Elfo {
         flecha = new Item("Flechas", 42);
     }
 
+    public String toString(){
+        return getNome() + " possui " + flecha.getQuantidade() + " flechas e " + getExperiencia() + " níveis de experiência";
+    }    
+        
     public void setNome(String n) {
         nome = n;
     }
@@ -22,6 +26,10 @@ public class Elfo {
         return arco;
     }
 
+    public int getExperiencia() {
+        return experiencia;
+    }
+    
     public Item getFlecha() {
         return flecha;
     }

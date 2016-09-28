@@ -73,31 +73,61 @@ public class ElfoTest
         assertEquals(0, numeroFlechasTotal); 
     } 
 
-    
     @Test
     public void elfoAtacouDwarfUmaVez(){
-    //Arrange
-    Elfo elfoTeste4 = new Elfo ("Galadriel 1");
-    Dwarf dwarfTeste = new Dwarf();
-    //Act
-    elfoTeste4.atirarFlecha(dwarfTeste);
-    //Assert
-    assertEquals(100, dwarfTeste.getVida()); 
+        //Arrange
+        Elfo elfoTeste4 = new Elfo ("Galadriel 1");
+        Dwarf dwarfTeste = new Dwarf();
+        //Act
+        elfoTeste4.atirarFlecha(dwarfTeste);
+        //Assert
+        assertEquals(100, dwarfTeste.getVida()); 
     }
 
     @Test
     public void elfoMatouUmDwarf(){
-    //Arrange
-    Elfo elfoTeste5 = new Elfo ("Galadriel 2");
-    Dwarf dwarfTeste2 = new Dwarf();
-    //Act
-    int flechasUtilizadas = 11;    
-    while(flechasUtilizadas > 0){
-    elfoTeste5.atirarFlecha(dwarfTeste2);
-    flechasUtilizadas--;
+        //Arrange
+        Elfo elfoTeste5 = new Elfo ("Galadriel 2");
+        Dwarf dwarfTeste2 = new Dwarf();
+        //Act
+        int flechasUtilizadas = 11;    
+        while(flechasUtilizadas > 0){
+            elfoTeste5.atirarFlecha(dwarfTeste2);
+            flechasUtilizadas--;
+        }
+        //Assert
+        assertEquals(0, dwarfTeste2.getVida()); 
     }
-    //Assert
-    assertEquals(0, dwarfTeste2.getVida()); 
+
+    @Test
+    public void statusInicialElfo(){
+        //Arrange
+        Elfo elfoTeste6 = new Elfo("Legolas");
+        //Act & Assert
+        assertEquals("Legolas possui 42 flechas e 0 níveis de experiência", elfoTeste6.toString());
     }
-     
+
+    @Test
+    public void statusElfoAtacouUmaVez(){
+        //Arrange
+        Elfo elfoTeste6 = new Elfo("Legolas");
+        //Act
+        elfoTeste6.atirarFlecha(new Dwarf());
+        //Assert
+        assertEquals("Legolas possui 41 flechas e 1 níveis de experiência", elfoTeste6.toString());
+    }
+
+    @Test
+    public void statusElfoSemFlechas(){
+        //Arrange
+        Elfo elfoTeste7 = new Elfo("Legolas");
+        //Act
+        int numeroFlechasTotal = elfoTeste7.getFlecha().getQuantidade();
+        while(numeroFlechasTotal != 0){
+            elfoTeste7.atirarFlecha(new Dwarf());
+            numeroFlechasTotal--;
+        }
+        //Assert
+        assertEquals("Legolas possui 0 flechas e 42 níveis de experiência", elfoTeste7.toString());
+    }
 }    
