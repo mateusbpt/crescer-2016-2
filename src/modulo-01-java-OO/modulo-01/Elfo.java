@@ -3,13 +3,11 @@ public class Elfo {
     private Item arco;
     private Item flecha;
     private int experiencia;
-    private int dwarf;
 
     public Elfo(String n) {
         nome = n;
         arco = new Item("Arco", 1);
         flecha = new Item("Flechas", 42);
-        dwarf = 110;
     }
 
     public void setNome(String n) {
@@ -27,24 +25,15 @@ public class Elfo {
     public Item getFlecha() {
         return flecha;
     }
-    
-    public int getDwarf() {
-        return dwarf;
-    }
-    
-    public void atirarFlecha() {
+
+    public void atirarFlecha(Dwarf dwarf) {
         if(flecha.getQuantidade() > 0){ //garante que o elfo não possua flechas negativas
             flecha.setQuantidade(flecha.getQuantidade() - 1);
             experiencia++;
+            dwarf.perderVida();
         } 
     }
 
-    public void atacarDwarf() {
-        atirarFlecha();
-        if(dwarf > 0 && flecha.getQuantidade() > 0){
-            dwarf -= 10;
-        }
-    }
     /*public void atirarFlechaRefactory() {
     experiencia++;
     flecha.setQuantidade(flecha.getQuantidade()-1);
