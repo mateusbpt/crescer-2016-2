@@ -104,7 +104,7 @@ public class ElfoTest
         //Arrange
         Elfo elfoTeste6 = new Elfo("Legolas");
         //Act & Assert
-        assertEquals("Legolas possui 42 flechas e 0 níveis de experiência", elfoTeste6.toString());
+        assertEquals("Legolas possui 42 flechas e 0 níveis de experiência.", elfoTeste6.toString());
     }
 
     @Test
@@ -114,7 +114,7 @@ public class ElfoTest
         //Act
         elfoTeste6.atirarFlecha(new Dwarf());
         //Assert
-        assertEquals("Legolas possui 41 flechas e 1 níveis de experiência", elfoTeste6.toString());
+        assertEquals("Legolas possui 41 flechas e 1 nível de experiência.", elfoTeste6.toString());
     }
 
     @Test
@@ -128,7 +128,7 @@ public class ElfoTest
             numeroFlechasTotal--;
         }
         //Assert
-        assertEquals("Legolas possui 0 flechas e 42 níveis de experiência", elfoTeste7.toString());
+        assertEquals("Legolas possui 0 flechas e 42 níveis de experiência.", elfoTeste7.toString());
     }
 
     @Test
