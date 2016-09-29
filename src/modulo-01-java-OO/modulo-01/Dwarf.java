@@ -29,8 +29,8 @@ public class Dwarf {
         return experiencia;
     }
     
-    public void ganharExperiencia(){
-       experiencia++;
+    public void ganharExperiencia(int xp){
+       experiencia+=xp;
     }
     
     public double getNumeroSorte(){

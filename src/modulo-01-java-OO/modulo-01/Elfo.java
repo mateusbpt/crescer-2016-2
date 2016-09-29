@@ -49,7 +49,7 @@ public class Elfo {
         if(flecha.getQuantidade() > 0){ //garante que o elfo não possua flechas negativas
             flecha.setQuantidade(flecha.getQuantidade() - 1);   
             if(menorQueZero == true){
-                dwarf.ganharExperiencia();
+                dwarf.ganharExperiencia(2);
             } 
             if(maiorQue100 == true){
                 dwarf.perderVida(); 

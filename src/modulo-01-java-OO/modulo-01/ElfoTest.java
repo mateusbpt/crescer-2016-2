@@ -181,7 +181,7 @@ public class ElfoTest
         dwarf1.perderVida();
         elfoTeste11.atirarFlecha(dwarf1);
         //Assert
-        assertEquals(1, dwarf1.getExperiencia());
+        assertEquals(2, dwarf1.getExperiencia());
         assertEquals(90, dwarf1.getVida());
     }   
 
@@ -189,7 +189,7 @@ public class ElfoTest
     public void elfoAtacaDwarfNumeroEntre0e100(){ 
         //Arrange
         DataTerceiraEra data = new DataTerceiraEra (25, 12, 2001);
-        Dwarf dwarf1 = new Dwarf("Seixas", data);
+        Dwarf dwarf1 = new Dwarf("Meireles", data);
         Elfo elfoTeste11 = new Elfo ("Arwen");
         //Act
         elfoTeste11.atirarFlecha(dwarf1);
