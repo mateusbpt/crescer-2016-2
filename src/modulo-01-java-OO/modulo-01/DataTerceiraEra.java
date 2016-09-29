@@ -23,10 +23,7 @@ public class DataTerceiraEra {
     }    
 
     public boolean ehBissexto(){
-
-        if(ano%400 == 0 || (ano%100 != 0 && ano%4 == 0)){ //Condições para ocorrer ano Bissexto
-            return true;   
-        }
-        return false;
+        return (ano%400 == 0 || (ano%100 != 0 && ano%4 == 0)); //Condições para ocorrer ano Bissexto
     }
+
 }
