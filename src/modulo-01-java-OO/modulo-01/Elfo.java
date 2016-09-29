@@ -53,6 +53,7 @@ public class Elfo {
             } 
             if(maiorQue100 == true){
                 dwarf.perderVida(); 
+                experiencia++;
             }
         }
     }  
