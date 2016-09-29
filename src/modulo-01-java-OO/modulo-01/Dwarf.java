@@ -37,10 +37,10 @@ public class Dwarf {
         boolean vida = this.vida >= 80 && this.vida <= 90;
         boolean nome = this.nome.equals("Seixas") || this.nome.equals("Meireles");
         double numero = 101.0; 
-        if(dataNascimento.ehBissexto() == true && vida == true){
+        if(dataNascimento.ehBissexto() && vida){
             return numero*(-33.0);    
         }
-        if(dataNascimento.ehBissexto() == false && nome == true){
+        if(!dataNascimento.ehBissexto() && nome){
             return (numero*(33.0))%100;    
         }
         return numero;
