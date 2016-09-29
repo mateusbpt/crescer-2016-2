@@ -25,13 +25,13 @@ public class Dwarf {
     }
 
     public double getNumeroSorte(){
-        boolean vidaDwarf = this.vida >= 80 && this.vida <= 90;
-        boolean nomeDwarf = this.nome.equals("Seixas") || this.nome.equals("Meireles");
+        boolean vida = this.vida >= 80 && this.vida <= 90;
+        boolean nome = this.nome.equals("Seixas") || this.nome.equals("Meireles");
         double numero = 101.0; 
-        if(dataNascimento.ehBissexto() == true && vidaDwarf == true){
+        if(dataNascimento.ehBissexto() == true && vida == true){
             return numero*(-33.0);    
         }
-        if(dataNascimento.ehBissexto() == false && nomeDwarf == true){
+        if(dataNascimento.ehBissexto() == false && nome == true){
             return (numero*(33.0))%100;    
         }
         return numero;
