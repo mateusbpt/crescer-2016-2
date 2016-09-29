@@ -44,22 +44,12 @@ public class Elfo {
     }
 
     public void atirarFlecha(Dwarf dwarf) {
-        boolean menorQueZero = dwarf.getNumeroSorte() < 0;
-        boolean maiorQue100 = dwarf.getNumeroSorte() > 100;
         if(flecha.getQuantidade() > 0){ //garante que o elfo não possua flechas negativas
             flecha.setQuantidade(flecha.getQuantidade() - 1);   
-            if(menorQueZero == true){
-                dwarf.ganharExperiencia(2);
-            } 
-            if(maiorQue100 == true){
-                dwarf.perderVida(); 
-                experiencia++;
-            }
+            dwarf.perderVida(); 
+            experiencia++;
         }
-    }  
-    /*public void atirarFlechaRefactory() {
-    experiencia++;
-    flecha.setQuantidade(flecha.getQuantidade()-1);
-    }*/
-}
+    }
+}  
+
 
