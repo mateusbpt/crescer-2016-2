@@ -4,7 +4,9 @@ public class Dwarf {
     private String nome;
     private DataTerceiraEra dataNascimento;
 
-    public Dwarf(){ //para compilar a ElfoTest
+    public Dwarf(String nome){ //para compilar a ElfoTest
+        this.nome = nome;
+        this.dataNascimento = new DataTerceiraEra(1,1,1);
         this.vida = 110;
     }
 

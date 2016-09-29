@@ -38,7 +38,7 @@ public class ElfoTest
         // Arrange
         Elfo elfoTeste1 = new Elfo ("Legolas 1");
         //Act
-        elfoTeste1.atirarFlecha(new Dwarf());
+        elfoTeste1.atirarFlecha(new Dwarf("Bombur"));
         //Assert
         assertEquals(41, elfoTeste1.getFlecha().getQuantidade()); 
     } 
@@ -51,7 +51,7 @@ public class ElfoTest
         int numeroflechasUsadas = 10;
         int numeroFlechasTotal = elfoTeste2.getFlecha().getQuantidade();
         while(numeroflechasUsadas != 0){
-            elfoTeste2.atirarFlecha(new Dwarf());
+            elfoTeste2.atirarFlecha(new Dwarf("Bombur"));
             numeroflechasUsadas--;
             numeroFlechasTotal--;
         }
@@ -66,7 +66,7 @@ public class ElfoTest
         //Act
         int numeroFlechasTotal = elfoTeste3.getFlecha().getQuantidade();
         while(numeroFlechasTotal != 0){
-            elfoTeste3.atirarFlecha(new Dwarf());
+            elfoTeste3.atirarFlecha(new Dwarf("Bombur"));
             numeroFlechasTotal --;
         }
         //Assert
@@ -77,7 +77,7 @@ public class ElfoTest
     public void elfoAtacouDwarfUmaVez(){
         //Arrange
         Elfo elfoTeste4 = new Elfo ("Galadriel 1");
-        Dwarf dwarfTeste = new Dwarf();
+        Dwarf dwarfTeste = new Dwarf("Bombur");
         //Act
         elfoTeste4.atirarFlecha(dwarfTeste);
         //Assert
@@ -88,7 +88,7 @@ public class ElfoTest
     public void elfoMatouUmDwarf(){
         //Arrange
         Elfo elfoTeste5 = new Elfo ("Galadriel 2");
-        Dwarf dwarfTeste2 = new Dwarf();
+        Dwarf dwarfTeste2 = new Dwarf("Bombur");
         //Act
         int flechasUtilizadas = 11;    
         while(flechasUtilizadas > 0){
@@ -112,7 +112,7 @@ public class ElfoTest
         //Arrange
         Elfo elfoTeste6 = new Elfo("Legolas");
         //Act
-        elfoTeste6.atirarFlecha(new Dwarf());
+        elfoTeste6.atirarFlecha(new Dwarf("Bombur"));
         //Assert
         assertEquals("Legolas possui 41 flechas e 1 nível de experiência.", elfoTeste6.toString());
     }
@@ -124,7 +124,7 @@ public class ElfoTest
         //Act
         int numeroFlechasTotal = elfoTeste7.getFlecha().getQuantidade();
         while(numeroFlechasTotal != 0){
-            elfoTeste7.atirarFlecha(new Dwarf());
+            elfoTeste7.atirarFlecha(new Dwarf("Bombur"));
             numeroFlechasTotal--;
         }
         //Assert
