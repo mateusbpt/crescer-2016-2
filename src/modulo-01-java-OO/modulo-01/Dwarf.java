@@ -3,6 +3,7 @@ public class Dwarf {
     private int vida;
     private String nome;
     private DataTerceiraEra dataNascimento;
+    private int experiencia;
 
     public Dwarf(String nome){ //para compilar a ElfoTest
         this.nome = nome;
@@ -23,7 +24,15 @@ public class Dwarf {
     public int getVida(){
         return vida;
     }
-
+    
+    public int getExperiencia(){
+        return experiencia;
+    }
+    
+    public void ganharExperiencia(){
+       experiencia++;
+    }
+    
     public double getNumeroSorte(){
         boolean vida = this.vida >= 80 && this.vida <= 90;
         boolean nome = this.nome.equals("Seixas") || this.nome.equals("Meireles");

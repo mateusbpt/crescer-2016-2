@@ -3,7 +3,6 @@ public class Elfo {
     private Item arco;
     private Item flecha;
     private int experiencia;
-    
 
     public Elfo(String n) {
         //Chama construtor debaixo
@@ -45,13 +44,18 @@ public class Elfo {
     }
 
     public void atirarFlecha(Dwarf dwarf) {
+        boolean menorQueZero = dwarf.getNumeroSorte() < 0;
+        boolean maiorQue100 = dwarf.getNumeroSorte() > 100;
         if(flecha.getQuantidade() > 0){ //garante que o elfo não possua flechas negativas
-            flecha.setQuantidade(flecha.getQuantidade() - 1);
-            experiencia++;
-            dwarf.perderVida();
-        } 
-    }
-
+            flecha.setQuantidade(flecha.getQuantidade() - 1);   
+            if(menorQueZero == true){
+                dwarf.ganharExperiencia();
+            } 
+            if(maiorQue100 == true){
+                dwarf.perderVida(); 
+            }
+        }
+    }  
     /*public void atirarFlechaRefactory() {
     experiencia++;
     flecha.setQuantidade(flecha.getQuantidade()-1);
