@@ -4,27 +4,33 @@ public class Dwarf {
     private String nome;
     private DataTerceiraEra dataNascimento;
     private int experiencia;
+    private Status status;
 
     public Dwarf(){ //para compilar a ElfoTest
-        this.nome = null;
-        this.dataNascimento = new DataTerceiraEra(1,1,1);
-        this.vida = 110;
+        this(null, new DataTerceiraEra(1,1,1));        
     }
 
     public Dwarf(String nome, DataTerceiraEra dataNascimento) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.vida = 110;
+        this.status = Status.VIVO;
     }
 
     public void perderVida(){
         boolean menorQueZero = getNumeroSorte() < 0;
         boolean maiorQue100 = getNumeroSorte() > 100;
+        boolean statusVida = vida > 0;
         if(menorQueZero){
             experiencia+=2;
         }
-        if(maiorQue100){
+
+        if(maiorQue100 && statusVida){
             vida-=10;
+        }
+        
+        if(vida == 0){
+           status = Status.MORTO; 
         }
     }
 
@@ -32,13 +38,13 @@ public class Dwarf {
         return vida;
     }
 
-    public int getExperiencia(){
-        return experiencia;
+    public Status getStatus(){
+        return status;
     }
 
-    public void ganharExperiencia(int xp){
-        experiencia+=xp;
-    }
+    public int getExperiencia(){
+        return experiencia;
+    }    
 
     public double getNumeroSorte(){
         boolean vida = this.vida >= 80 && this.vida <= 90;

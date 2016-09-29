@@ -14,7 +14,7 @@ public class Elfo {
         nome = n;
         arco = new Item("Arco", 1);
         flecha = new Item("Flechas", quantidadeFlechas  >= 0 ? quantidadeFlechas : 42);
-        status = status.VIVO;
+        status = Status.VIVO;
     }
 
     public String toString(){

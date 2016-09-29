@@ -42,7 +42,7 @@ public class DwarfTest {
         dwarf1.perderVida();
         dwarf1.perderVida();
         dwarf1.perderVida();
-        
+
         //Assert
         assertEquals(-3333.0 ,dwarf1.getNumeroSorte(), .0); 
         assertEquals(2, dwarf1.getExperiencia());
@@ -70,7 +70,59 @@ public class DwarfTest {
         assertEquals(101.0, dwarf1.getNumeroSorte(), .0);
         assertEquals(100, dwarf1.getVida());
     }
-    
-    
+
+    @Test
+    public void numeroStatusVivo(){
+        //Arrange
+        DataTerceiraEra data = new DataTerceiraEra (12, 01, 1997);
+        Dwarf dwarf1 = new Dwarf("Seixas", data); 
+        //Act & Assert
+        assertEquals(Status.VIVO, dwarf1.getStatus());
+    }
+
+    @Test
+    public void numeroStatusMorto(){
+        //Arrange
+        Dwarf dwarf1 = new Dwarf(); 
+        //Act 
+        int ataque = 11;
+        while(ataque != 0){
+            dwarf1.perderVida();
+            ataque--;
+        }
+        //Assert
+        assertEquals(0, dwarf1.getVida());
+        assertEquals(Status.MORTO, dwarf1.getStatus());
+    }
+
+    @Test
+    public void vidaDwarfApos12Ataques(){
+        //Arrange
+        Dwarf dwarf1 = new Dwarf(); 
+        //Act 
+        int ataque = 12;
+        while(ataque != 0){
+            dwarf1.perderVida();
+            ataque--;
+        }
+        //Assert
+        assertEquals(Status.MORTO, dwarf1.getStatus());
+        assertEquals(0, dwarf1.getVida());
+    }
+
+    @Test
+    public void vidaDwarfApos5Ataques(){
+        //Arrange
+        Dwarf dwarf1 = new Dwarf(); 
+        //Act 
+        int ataque = 5;
+        while(ataque != 0){
+            dwarf1.perderVida();
+            ataque--;
+        }
+        //Assert
+        assertEquals(Status.VIVO, dwarf1.getStatus());
+        assertEquals(60, dwarf1.getVida());
+    }
 }
 
