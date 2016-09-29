@@ -22,7 +22,7 @@ public class DwarfTest {
 
     @Test
     public void dwarfPerdeVidaDezVezes(){
-        DataTerceiraEra data = new DataTerceiraEra (25, 12, 2000);
+        DataTerceiraEra data = new DataTerceiraEra (25, 12, 2001);
         Dwarf dwarf = new Dwarf("Thorin", data);
         int ataqueDwarf = 10;
         while(ataqueDwarf != 0){
@@ -41,9 +41,11 @@ public class DwarfTest {
         //Act
         dwarf1.perderVida();
         dwarf1.perderVida();
-
+        dwarf1.perderVida();
+        
         //Assert
-        assertEquals(-3333, (int)dwarf1.getNumeroSorte()); //para assertEquals double era necessário 3 parâmetros
+        assertEquals(-3333.0 ,dwarf1.getNumeroSorte(), .0); 
+        assertEquals(2, dwarf1.getExperiencia());
     }
 
     @Test
@@ -52,7 +54,9 @@ public class DwarfTest {
         DataTerceiraEra data = new DataTerceiraEra (12, 01, 1997);
         Dwarf dwarf1 = new Dwarf("Seixas", data);
         //Act & Assert
-        assertEquals(33, (int)dwarf1.getNumeroSorte()); //para assertEquals double era necessário 3 parâmetros
+        assertEquals(33.0, dwarf1.getNumeroSorte(), .0);
+        assertEquals(110, dwarf1.getVida());
+        assertEquals(0, dwarf1.getExperiencia());
     }
 
     @Test
@@ -60,8 +64,13 @@ public class DwarfTest {
         //Arrange
         DataTerceiraEra data = new DataTerceiraEra (12, 01, 2000);
         Dwarf dwarf1 = new Dwarf("Seixas", data);
-        //Act & Assert
-        assertEquals(101, (int)dwarf1.getNumeroSorte()); //para assertEquals double era necessário 3 parâmetros
+        //Act 
+        dwarf1.perderVida();
+        //Assert
+        assertEquals(101.0, dwarf1.getNumeroSorte(), .0);
+        assertEquals(100, dwarf1.getVida());
     }
+    
+    
 }
 
