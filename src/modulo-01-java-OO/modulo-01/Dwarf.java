@@ -18,6 +18,9 @@ public class Dwarf {
     }
 
     public void perderVida(){
+        if(status == Status.MORTO){
+        return;    
+        }
         boolean menorQueZero = getNumeroSorte() < 0;
         boolean maiorQue100 = getNumeroSorte() > 100;
         boolean statusVida = vida > 0;
