@@ -86,7 +86,7 @@ public class InventarioTest {
 
     @Test
     public void itemMaiorQuantidade2() {
-       //Arrange
+        //Arrange
         Inventario inventario = new Inventario();
         Item arma1 = new Item("Machado", 150);
         Item arma2 = new Item("Faca", 23);
@@ -133,7 +133,7 @@ public class InventarioTest {
         //Assert
         assertEquals(arma2, inventario.retornaItemMaiorQuantidade()); 
     } 
-    
+
     @Test
     public void itemMaiorQuantidadeIgual() {
         //Arrange
@@ -158,4 +158,68 @@ public class InventarioTest {
         //Assert
         assertEquals(arma6, inventario.retornaItemMaiorQuantidade()); 
     } 
+
+    @Test
+    public void ordena5Itens(){
+        //Arrange
+        Inventario inventario = new Inventario();
+        Item arma1 = new Item("Machado", 23);
+        Item arma2 = new Item("Faca", 34);
+        Item arma3 = new Item("Espada", 10);
+        Item arma4 = new Item("Arco", 123);
+        Item arma5 = new Item("Foice", 1);        
+        //Act
+        inventario.adicionarItem(arma1);
+        inventario.adicionarItem(arma2);
+        inventario.adicionarItem(arma3);
+        inventario.adicionarItem(arma4);
+        inventario.adicionarItem(arma5);
+        inventario.ordenarItens();
+        //Assert
+        assertEquals("Foice,Espada,Machado,Faca,Arco", inventario.getDescricoesItens());
+
+    }
+
+    @Test
+    public void itensJaOrdenados(){
+        //Arrange
+        Inventario inventario = new Inventario();
+        Item arma1 = new Item("Machado", 10);
+        Item arma2 = new Item("Faca", 11);
+        Item arma3 = new Item("Espada", 12);
+        Item arma4 = new Item("Arco", 13);
+        Item arma5 = new Item("Foice", 14);        
+        //Act
+        inventario.adicionarItem(arma1);
+        inventario.adicionarItem(arma2);
+        inventario.adicionarItem(arma3);
+        inventario.adicionarItem(arma4);
+        inventario.adicionarItem(arma5);
+        inventario.ordenarItens();
+        //Assert
+        assertEquals("Machado,Faca,Espada,Arco,Foice", inventario.getDescricoesItens());
+    }
+
+    @Test
+    public void ordenaInventarioComUmitem(){
+        //Arrange
+        Inventario inventario = new Inventario();
+        Item arma1 = new Item("Machado", 10);
+
+        //Act
+        inventario.adicionarItem(arma1);
+        inventario.ordenarItens();
+        //Assert
+        assertEquals("Machado", inventario.getDescricoesItens());
+    }
+    
+    @Test
+    public void inventarioSemItens(){
+        //Arrange
+        Inventario inventario = new Inventario();
+        //Act
+        inventario.ordenarItens();
+        //Assert
+        assertEquals(null, inventario.getDescricoesItens());
+    }
 }

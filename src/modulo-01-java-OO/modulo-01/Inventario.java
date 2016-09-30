@@ -47,4 +47,18 @@ public class Inventario {
             item.setQuantidade(item.getQuantidade()+ 1000);
         }    
     }
+
+    public void ordenarItens(){
+        int i, j;
+        
+        for (i = 1; i < itens.size(); i++) {
+            Item auxiliar = itens.get(i);
+            j = i;
+            while ((j > 0) && (itens.get(j - 1).getQuantidade() > auxiliar.getQuantidade())) { //Para lista descendente, getQuantidade() < auxiliar.getQuantidade()
+                itens.set(j, itens.get(j - 1));
+                j--;
+            }
+            itens.set(j, auxiliar);
+        }
+    } 
 }
