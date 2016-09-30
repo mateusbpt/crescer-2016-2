@@ -20,7 +20,7 @@ public class Inventario {
         if(!itens.isEmpty()){
             String retorno = itens.get(0).getDescricao();
             for(int i = 1; i < itens.size(); i++){
-                retorno = retorno + "," + itens.get(i).getDescricao();    
+                retorno += String.format(",%s", itens.get(i).getDescricao());    
             } 
             return retorno;
         }
@@ -40,5 +40,11 @@ public class Inventario {
             return itens.get(retorno);
         }
         return null;
+    }
+
+    public void aumentar1000Unidades(){
+        for(Item item : itens){
+            item.setQuantidade(item.getQuantidade()+ 1000);
+        }    
     }
 }

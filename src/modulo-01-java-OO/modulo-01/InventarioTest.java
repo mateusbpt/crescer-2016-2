@@ -133,4 +133,29 @@ public class InventarioTest {
         //Assert
         assertEquals(arma2, inventario.retornaItemMaiorQuantidade()); 
     } 
+    
+    @Test
+    public void itemMaiorQuantidadeIgual() {
+        //Arrange
+        Inventario inventario = new Inventario();
+        Item arma1 = new Item("Machado", 10);
+        Item arma2 = new Item("Faca", 10);
+        Item arma3 = new Item("Espada", 10);
+        Item arma4 = new Item("Arco", 10);
+        Item arma5 = new Item("Foice", 10);
+        Item arma6 = new Item("Adaga", 10);
+        //Act
+        inventario.adicionarItem(arma1);
+        inventario.adicionarItem(arma2);
+        inventario.adicionarItem(arma3);
+        inventario.removerItem(arma2);
+        inventario.adicionarItem(arma4);
+        inventario.adicionarItem(arma2);
+        inventario.removerItem(arma3);
+        inventario.adicionarItem(arma5);
+        inventario.removerItem(arma1);
+        inventario.adicionarItem(arma6);
+        //Assert
+        assertEquals(arma6, inventario.retornaItemMaiorQuantidade()); 
+    } 
 }
