@@ -17,15 +17,29 @@ public class Inventario {
     }
 
     public String getDescricoesItens(){
-        String retorno = "";
-        int ultimo = itens.size()-1;
         if(!itens.isEmpty()){
-        for(int i = 0; i < ultimo; i++){
-            retorno += itens.get(i).getDescricao() + ", ";    
-        } 
-        return retorno + itens.get(ultimo).getDescricao();
+            String retorno = "";
+            int ultimo = itens.size()-1;
+            for(int i = 0; i < ultimo; i++){
+                retorno += itens.get(i).getDescricao() + ", ";    
+            } 
+            return retorno + itens.get(ultimo).getDescricao();
+        }
+        return null;
     }
-    return null;
-}
 
+    public Item retornaItemMaiorQuantidade(){
+        if(!itens.isEmpty()){
+            int compara = 0;
+            int retorno = 0;
+            for(int i = 0; i < itens.size(); i++){
+                if(compara <= itens.get(i).getQuantidade()){   
+                    retorno = i;
+                    compara = itens.get(i).getQuantidade();
+                }
+            } 
+            return itens.get(retorno);
+        }
+        return null;
+    }
 }
