@@ -60,4 +60,12 @@ public class InventarioTest {
         //Assert
         assertEquals("Arco, Faca, Foice, Adaga", inventario.getDescricoesItens()); 
     }      
+
+    @Test    
+    public void inventarioVazio(){
+    //Arrange
+    Inventario inventario = new Inventario();
+    //Act & Assert
+    assertEquals(null, inventario.getDescricoesItens());
+    }
 }
