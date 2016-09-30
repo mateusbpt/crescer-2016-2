@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.ArrayList;
 
 public class Inventario {
 
@@ -18,12 +18,11 @@ public class Inventario {
 
     public String getDescricoesItens(){
         if(!itens.isEmpty()){
-            String retorno = "";
-            int ultimo = itens.size()-1;
-            for(int i = 0; i < ultimo; i++){
-                retorno += itens.get(i).getDescricao() + ", ";    
+            String retorno = itens.get(0).getDescricao();
+            for(int i = 1; i < itens.size(); i++){
+                retorno = retorno + "," + itens.get(i).getDescricao();    
             } 
-            return retorno + itens.get(ultimo).getDescricao();
+            return retorno;
         }
         return null;
     }

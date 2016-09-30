@@ -17,7 +17,7 @@ public class InventarioTest {
         inventario.adicionarItem(arma2);
         inventario.adicionarItem(arma3);
         //Assert
-        assertEquals("Machado, Faca, Espada", inventario.getDescricoesItens()); 
+        assertEquals("Machado,Faca,Espada", inventario.getDescricoesItens()); 
     }    
 
     @Test
@@ -33,7 +33,7 @@ public class InventarioTest {
         inventario.adicionarItem(arma3);
         inventario.removerItem(arma2);
         //Assert
-        assertEquals("Machado, Espada", inventario.getDescricoesItens()); 
+        assertEquals("Machado,Espada", inventario.getDescricoesItens()); 
     } 
 
     @Test
@@ -58,7 +58,7 @@ public class InventarioTest {
         inventario.removerItem(arma1);
         inventario.adicionarItem(arma6);
         //Assert
-        assertEquals("Arco, Faca, Foice, Adaga", inventario.getDescricoesItens()); 
+        assertEquals("Arco,Faca,Foice,Adaga", inventario.getDescricoesItens()); 
     }      
 
     @Test    
