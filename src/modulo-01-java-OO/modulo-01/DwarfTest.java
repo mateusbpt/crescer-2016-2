@@ -124,5 +124,6 @@ public class DwarfTest {
         assertEquals(Status.VIVO, dwarf1.getStatus());
         assertEquals(60, dwarf1.getVida());
     }
+
 }
 

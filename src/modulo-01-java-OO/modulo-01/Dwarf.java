@@ -5,6 +5,7 @@ public class Dwarf {
     private DataTerceiraEra dataNascimento;
     private int experiencia;
     private Status status;
+    private Inventario inventario;
 
     public Dwarf(){ //para compilar a ElfoTest
         this(null, new DataTerceiraEra(1,1,1));        
@@ -15,11 +16,12 @@ public class Dwarf {
         this.dataNascimento = dataNascimento;
         this.vida = 110;
         this.status = Status.VIVO;
+        this.inventario = new Inventario();
     }
 
     public void perderVida(){
         if(status == Status.MORTO){
-        return;    
+            return;    
         }
         boolean menorQueZero = getNumeroSorte() < 0;
         boolean maiorQue100 = getNumeroSorte() > 100;
@@ -31,9 +33,9 @@ public class Dwarf {
         if(maiorQue100 && statusVida){
             vida-=10;
         }
-        
+
         if(vida == 0){
-           status = Status.MORTO; 
+            status = Status.MORTO; 
         }
     }
 
@@ -49,6 +51,10 @@ public class Dwarf {
         return experiencia;
     }    
 
+    public Inventario getInventario(){
+        return inventario;
+    }
+
     public double getNumeroSorte(){
         boolean vida = this.vida >= 80 && this.vida <= 90;
         boolean nome = "Seixas".equals(this.nome) || "Meireles".equals(this.nome);
@@ -61,4 +67,19 @@ public class Dwarf {
         }
         return numero;
     }
+
+    public void ganharItem(Item item) {
+        inventario.adicionarItem(item);
+    }
+
+    public void perderItem(Item item) {
+        inventario.removerItem(item);
+    }
+    
+    public void tentarSorte(){
+        boolean temSorte = getNumeroSorte() == -3333.0;
+        if(temSorte){
+        inventario.aumentar1000Unidades();    
+        }
+    } 
 }
