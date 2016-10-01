@@ -75,11 +75,11 @@ public class Dwarf {
     public void perderItem(Item item) {
         inventario.removerItem(item);
     }
-    
+
     public void tentarSorte(){
         boolean temSorte = getNumeroSorte() == -3333.0;
         if(temSorte){
-        inventario.aumentar1000Unidades();    
+            inventario.aumentarUnidadesDosItens(1000);    
         }
     } 
 }
