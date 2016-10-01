@@ -222,4 +222,133 @@ public class InventarioTest {
         //Assert
         assertEquals(null, inventario.getDescricoesItens());
     }
+    
+     @Test
+    public void ordena5ItensDescendente(){
+        //Arrange
+        Inventario inventario = new Inventario();
+        Item arma1 = new Item("Machado", 23);
+        Item arma2 = new Item("Faca", 34);
+        Item arma3 = new Item("Espada", 10);
+        Item arma4 = new Item("Arco", 123);
+        Item arma5 = new Item("Foice", 1);        
+        //Act
+        inventario.adicionarItem(arma1);
+        inventario.adicionarItem(arma2);
+        inventario.adicionarItem(arma3);
+        inventario.adicionarItem(arma4);
+        inventario.adicionarItem(arma5);
+        inventario.ordenarItens(TipoOrdenacao.DESCENDENTE);
+        //Assert
+        assertEquals("Arco,Faca,Machado,Espada,Foice", inventario.getDescricoesItens());
+
+    }
+
+    @Test
+    public void itensJaOrdenadosDescendente(){
+        //Arrange
+        Inventario inventario = new Inventario();
+        Item arma1 = new Item("Machado", 14);
+        Item arma2 = new Item("Faca", 13);
+        Item arma3 = new Item("Espada", 12);
+        Item arma4 = new Item("Arco", 11);
+        Item arma5 = new Item("Foice", 10);        
+        //Act
+        inventario.adicionarItem(arma1);
+        inventario.adicionarItem(arma2);
+        inventario.adicionarItem(arma3);
+        inventario.adicionarItem(arma4);
+        inventario.adicionarItem(arma5);
+        inventario.ordenarItens(TipoOrdenacao.DESCENDENTE);
+        //Assert
+        assertEquals("Machado,Faca,Espada,Arco,Foice", inventario.getDescricoesItens());
+    }
+
+    @Test
+    public void ordenaInventarioComUmitemDescendente(){
+        //Arrange
+        Inventario inventario = new Inventario();
+        Item arma1 = new Item("Machado", 10);
+
+        //Act
+        inventario.adicionarItem(arma1);
+        inventario.ordenarItens(TipoOrdenacao.DESCENDENTE);
+        //Assert
+        assertEquals("Machado", inventario.getDescricoesItens());
+    }
+    
+    @Test
+    public void inventarioSemItensDescendente(){
+        //Arrange
+        Inventario inventario = new Inventario();
+        //Act
+        inventario.ordenarItens(TipoOrdenacao.DESCENDENTE);
+        //Assert
+        assertEquals(null, inventario.getDescricoesItens());
+    }
+    
+     @Test
+    public void ordena5ItensAscendente(){
+        //Arrange
+        Inventario inventario = new Inventario();
+        Item arma1 = new Item("Machado", 23);
+        Item arma2 = new Item("Faca", 34);
+        Item arma3 = new Item("Espada", 10);
+        Item arma4 = new Item("Arco", 123);
+        Item arma5 = new Item("Foice", 1);        
+        //Act
+        inventario.adicionarItem(arma1);
+        inventario.adicionarItem(arma2);
+        inventario.adicionarItem(arma3);
+        inventario.adicionarItem(arma4);
+        inventario.adicionarItem(arma5);
+        inventario.ordenarItens(TipoOrdenacao.ASCENDENTE);
+        //Assert
+        assertEquals("Foice,Espada,Machado,Faca,Arco", inventario.getDescricoesItens());
+
+    }
+
+    @Test
+    public void itensJaOrdenadosAscendente(){
+        //Arrange
+        Inventario inventario = new Inventario();
+        Item arma1 = new Item("Machado", 10);
+        Item arma2 = new Item("Faca", 11);
+        Item arma3 = new Item("Espada", 12);
+        Item arma4 = new Item("Arco", 13);
+        Item arma5 = new Item("Foice", 14);        
+        //Act
+        inventario.adicionarItem(arma1);
+        inventario.adicionarItem(arma2);
+        inventario.adicionarItem(arma3);
+        inventario.adicionarItem(arma4);
+        inventario.adicionarItem(arma5);
+        inventario.ordenarItens(TipoOrdenacao.ASCENDENTE);
+        //Assert
+        assertEquals("Machado,Faca,Espada,Arco,Foice", inventario.getDescricoesItens());
+    }
+
+    @Test
+    public void ordenaInventarioComUmitemAscendente(){
+        //Arrange
+        Inventario inventario = new Inventario();
+        Item arma1 = new Item("Machado", 10);
+
+        //Act
+        inventario.adicionarItem(arma1);
+        inventario.ordenarItens(TipoOrdenacao.ASCENDENTE);
+        //Assert
+        assertEquals("Machado", inventario.getDescricoesItens());
+    }
+    
+    @Test
+    public void inventarioSemItensAscendente(){
+        //Arrange
+        Inventario inventario = new Inventario();
+        //Act
+        inventario.ordenarItens(TipoOrdenacao.ASCENDENTE);
+        //Assert
+        assertEquals(null, inventario.getDescricoesItens());
+    }
+    
 }
