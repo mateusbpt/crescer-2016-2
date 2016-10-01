@@ -18,8 +18,21 @@ public class Item {
     public String getDescricao() {
         return descricao;
     }
-}
 
+    public void aumentarUnidades(int unidades) {
+        quantidade += unidades;
+    }
 
-
-
+    public int aumentarUnidadesVezes1000(){
+        if(quantidade != 0){
+            int auxiliar = Math.abs(quantidade);
+            int retorno = 0;
+            while(auxiliar != 0){
+                retorno+=auxiliar;
+                auxiliar--;
+            }
+            return retorno*1000;
+        }
+        return 0;
+    }
+}    
