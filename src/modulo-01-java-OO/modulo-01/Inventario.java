@@ -42,15 +42,20 @@ public class Inventario {
         return null;
     }
 
-    public void aumentar1000Unidades(){
+    public void aumentarUnidadesDosItens(int unidades){
         for(Item item : itens){
-            item.setQuantidade(item.getQuantidade()+ 1000);
+            item.aumentarUnidades(unidades);
         }    
     }
-
+    
+      public void aumentarUnidadesDosItensVezes1000(){
+        for(Item item : itens){
+            item.aumentarUnidades(item.aumentarUnidadesVezes1000());
+        }    
+    }
+    
     public void ordenarItens(){
         int i, j;
-        
         for (i = 1; i < itens.size(); i++) {
             Item auxiliar = itens.get(i);
             j = i;
