@@ -4,10 +4,14 @@ public class HobbitContador
 {
     ArrayList<ArrayList<Integer>> arrayDePares = new ArrayList<>();
 
-    
-    
-    
-    
+    public ArrayList<ArrayList<Integer>> getItens(){
+        return arrayDePares;    
+    }
+
+    public void adicionarArrayDePares(ArrayList<Integer> numeros){
+        arrayDePares.add(numeros);
+    }
+
     public int calculaMMC(int num1, int num2){
         int resultado = 1;
         int auxiliar = 2;
@@ -28,4 +32,13 @@ public class HobbitContador
         }
         return 0;
     }
+
+    public int calcularDiferenca(){
+        int resultado = 0;
+        for(ArrayList<Integer> par : arrayDePares){
+            resultado += (par.get(0)*par.get(1)) - calculaMMC(par.get(0), par.get(1));
+        }
+        return resultado;
+    }
+
 }
