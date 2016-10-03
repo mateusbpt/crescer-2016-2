@@ -55,33 +55,21 @@ public class Inventario {
     }
 
     public void ordenarItens(){
+        ordenarItens(TipoOrdenacao.ASCENDENTE);
+    } 
+
+    public void ordenarItens(TipoOrdenacao ordenacao){
+        boolean ascendente = ordenacao == TipoOrdenacao.ASCENDENTE;
         int i, j;
         for (i = 1; i < itens.size(); i++) {
             Item auxiliar = itens.get(i);
             j = i;
-            while ((j > 0) && (itens.get(j - 1).getQuantidade() > auxiliar.getQuantidade())) { //Para lista descendente, getQuantidade() < auxiliar.getQuantidade()
+            while ((j > 0) && (ascendente ? itens.get(j - 1).getQuantidade() > auxiliar.getQuantidade() : itens.get(j - 1).getQuantidade() < auxiliar.getQuantidade())) { 
                 itens.set(j, itens.get(j - 1));
                 j--;
             }
             itens.set(j, auxiliar);
         }
-    } 
 
-    public void ordenarItens(TipoOrdenacao ordenacao){
-        boolean ascendente = ordenacao == TipoOrdenacao.ASCENDENTE;
-        if(!ascendente){
-            int i, j;
-            for (i = 1; i < itens.size(); i++) {
-                Item auxiliar = itens.get(i);
-                j = i;
-                while ((j > 0) && (itens.get(j - 1).getQuantidade() < auxiliar.getQuantidade())) { 
-                    itens.set(j, itens.get(j - 1));
-                    j--;
-                }
-                itens.set(j, auxiliar);
-            }
-        } else{
-            ordenarItens();
-        }
     }
-}
+}   
