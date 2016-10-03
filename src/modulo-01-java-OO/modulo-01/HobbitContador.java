@@ -12,7 +12,7 @@ public class HobbitContador
         arrayDePares.add(numeros);
     }
 
-    public int calculaMMC(int num1, int num2){
+    public int calculaMMC(int num1, int num2){ //Otimizar e dividir classe
         int resultado = 1;
         int auxiliar = 2;
         if(num1 != 0 && num2 != 0){
