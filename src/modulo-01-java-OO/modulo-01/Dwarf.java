@@ -1,23 +1,17 @@
-public class Dwarf {
+public class Dwarf extends Personagem{
 
     private int vida;
-    private String nome;
     private DataTerceiraEra dataNascimento;
-    private int experiencia;
-    private Status status;
-    private Inventario inventario;
 
     public Dwarf(){ //para compilar a ElfoTest
         this(null, new DataTerceiraEra(1,1,1));        
     }
 
     public Dwarf(String nome, DataTerceiraEra dataNascimento) {
-        this.nome = nome;
+        super(nome);
         this.dataNascimento = dataNascimento;
         this.vida = 110;
-        this.status = Status.VIVO;
-        this.inventario = new Inventario();
-    }
+    }    
 
     public void perderVida(){
         if(status == Status.MORTO){
@@ -41,18 +35,6 @@ public class Dwarf {
 
     public int getVida(){
         return vida;
-    }
-
-    public Status getStatus(){
-        return status;
-    }
-
-    public int getExperiencia(){
-        return experiencia;
-    }    
-
-    public Inventario getInventario(){
-        return inventario;
     }
 
     public double getNumeroSorte(){
