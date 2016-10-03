@@ -1,7 +1,7 @@
 public class Dwarf extends Personagem{
 
-    private int vida;
-    private DataTerceiraEra dataNascimento;
+    protected int vida;
+    protected DataTerceiraEra dataNascimento;
 
     public Dwarf(){ //para compilar a ElfoTest
         this(null, new DataTerceiraEra(1,1,1));        
