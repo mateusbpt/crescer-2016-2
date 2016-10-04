@@ -12,9 +12,10 @@ public class ElfoNoturno extends Elfo{
     //sempre aumentará a casas de 0, mas nunca chegará a 0.0. Exemplo: 0.0000001 => 000000000.1  
 
     public void atirarFlecha(Dwarf dwarf) {
-        atirarFlecha(dwarf, 3);
-        vida-=(vida*0.05);
-        status = vida > 1.0 ? Status.VIVO : Status.MORTO;
-    }
-
-}    
+        if(status == Status.VIVO){
+            atirarFlecha(dwarf, 3);
+            vida-=(vida*0.05);
+            status = vida > 1.0 ? Status.VIVO : Status.MORTO;
+        }
+    }    
+}

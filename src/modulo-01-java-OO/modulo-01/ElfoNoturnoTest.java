@@ -16,8 +16,7 @@ public class ElfoNoturnoTest {
         assertEquals(3, elfo.getExperiencia());
         assertEquals(95.0, elfo.getVida(), .0);
     }
-    
-    
+
     @Test
     public void elfoNoturnoAtacaDuasVezes(){
         //Arrange
@@ -30,7 +29,7 @@ public class ElfoNoturnoTest {
         assertEquals(6, elfo.getExperiencia());
         assertEquals(90.25, elfo.getVida(), .0);
     }
-    
+
     @Test
     public void elfoNoturnoNaoAtaca(){
         //Arrange
@@ -40,7 +39,7 @@ public class ElfoNoturnoTest {
         assertEquals(0, elfo.getExperiencia());
         assertEquals(100.0, elfo.getVida(), .0);
     }
-    
+
     @Test
     public void elfoNoturnoAtaca90Vezes(){
         //Arrange
@@ -49,8 +48,24 @@ public class ElfoNoturnoTest {
         //Act
         int auxiliar = 90;
         while(auxiliar != 0){
-        elfo.atirarFlecha(dwarf);    
-        auxiliar--;
+            elfo.atirarFlecha(dwarf);    
+            auxiliar--;
+        }    
+        //Assert
+        assertEquals(270, elfo.getExperiencia());
+        assertEquals(Status.MORTO, elfo.getStatus());
+    }
+
+    @Test
+    public void elfoNoturnoAtaca91Vezes(){
+        //Arrange
+        Dwarf dwarf = new Dwarf();
+        ElfoNoturno elfo = new ElfoNoturno("Black Legolas", 150);
+        //Act
+        int auxiliar = 91;
+        while(auxiliar != 0){
+            elfo.atirarFlecha(dwarf);    
+            auxiliar--;
         }    
         //Assert
         assertEquals(270, elfo.getExperiencia());
