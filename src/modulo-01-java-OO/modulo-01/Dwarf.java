@@ -1,6 +1,5 @@
 public class Dwarf extends Personagem{
 
-    protected int vida;
     protected DataTerceiraEra dataNascimento;
 
     public Dwarf(){ //para compilar a ElfoTest
@@ -10,7 +9,7 @@ public class Dwarf extends Personagem{
     public Dwarf(String nome, DataTerceiraEra dataNascimento) {
         super(nome);
         this.dataNascimento = dataNascimento;
-        this.vida = 110;
+        super.vida = 110;
     }    
 
     public void perderVida(){
@@ -33,10 +32,6 @@ public class Dwarf extends Personagem{
         }
     }
 
-    public int getVida(){
-        return vida;
-    }
-
     public double getNumeroSorte(){
         boolean vida = this.vida >= 80 && this.vida <= 90;
         boolean nome = "Seixas".equals(this.nome) || "Meireles".equals(this.nome);
@@ -48,14 +43,6 @@ public class Dwarf extends Personagem{
             return (numero*33.0)%100;    
         }
         return numero;
-    }
-
-    public void ganharItem(Item item) {
-        inventario.adicionarItem(item);
-    }
-
-    public void perderItem(Item item) {
-        inventario.removerItem(item);
     }
 
     public void tentarSorte(){
