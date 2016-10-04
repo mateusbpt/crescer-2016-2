@@ -10,11 +10,11 @@ public class Item {
     public void setQuantidade(int novaQuantidade) {
         quantidade = novaQuantidade;
     }
-    
+
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
+
     public int getQuantidade() {
         return quantidade;
     }
@@ -39,4 +39,9 @@ public class Item {
         }
         return 0;
     }
+
+    public boolean equals(Object obj){
+        Item recebido = (Item)obj;   
+        return this.descricao.equals(recebido.descricao)&& this.quantidade == recebido.quantidade;
+    }   
 }    
