@@ -9,7 +9,7 @@ public class DwarfTest {
     public void dwarfNasce110Vida(){
         DataTerceiraEra data = new DataTerceiraEra (25, 12, 2000);
         Dwarf dwarf1 = new Dwarf("Thorin", data);
-        assertEquals(110, dwarf1.getVida());
+        assertEquals(110, dwarf1.getVida(), .0);
     }
 
     @Test
@@ -17,7 +17,7 @@ public class DwarfTest {
         DataTerceiraEra data = new DataTerceiraEra (25, 12, 2000);
         Dwarf dwarf = new Dwarf("Thorin", data);
         dwarf.perderVida();
-        assertEquals(100, dwarf.getVida());
+        assertEquals(100, dwarf.getVida(), .0);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class DwarfTest {
             dwarf.perderVida();
             ataqueDwarf--;
         }
-        assertEquals(10, dwarf.getVida());
+        assertEquals(10, dwarf.getVida(), .0);
     }
 
     @Test
@@ -55,7 +55,7 @@ public class DwarfTest {
         Dwarf dwarf1 = new Dwarf("Seixas", data);
         //Act & Assert
         assertEquals(33.0, dwarf1.getNumeroSorte(), .0);
-        assertEquals(110, dwarf1.getVida());
+        assertEquals(110, dwarf1.getVida(), .0);
         assertEquals(0, dwarf1.getExperiencia());
     }
 
@@ -68,7 +68,7 @@ public class DwarfTest {
         dwarf1.perderVida();
         //Assert
         assertEquals(101.0, dwarf1.getNumeroSorte(), .0);
-        assertEquals(100, dwarf1.getVida());
+        assertEquals(100, dwarf1.getVida(), .0);
     }
 
     @Test
@@ -91,7 +91,7 @@ public class DwarfTest {
             ataque--;
         }
         //Assert
-        assertEquals(0, dwarf1.getVida());
+        assertEquals(0, dwarf1.getVida(), .0);
         assertEquals(Status.MORTO, dwarf1.getStatus());
     }
 
@@ -107,7 +107,7 @@ public class DwarfTest {
         }
         //Assert
         assertEquals(Status.MORTO, dwarf1.getStatus());
-        assertEquals(0, dwarf1.getVida());
+        assertEquals(0, dwarf1.getVida(), .0);
     }
 
     @Test
@@ -122,7 +122,7 @@ public class DwarfTest {
         }
         //Assert
         assertEquals(Status.VIVO, dwarf1.getStatus());
-        assertEquals(60, dwarf1.getVida());
+        assertEquals(60, dwarf1.getVida(), .0);
     }
 
 }
