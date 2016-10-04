@@ -1,5 +1,10 @@
 public class ElfoVerde extends Elfo {
 
+    {
+        getArco().setDescricao("Arco de Vidro");
+        getFlecha().setDescricao("Flecha de Vidro");
+    }    
+
     public ElfoVerde(String nome){
         super(nome);
     }
