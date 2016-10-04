@@ -169,13 +169,14 @@ public class ElfoTest
         assertEquals(42, elfoTeste10.getFlecha().getQuantidade()); 
 
     }
-    
+
     @Test
-    
+
     public void elfoNasceVivo(){
-    //Arrange
-    Elfo elfoTeste11 = new Elfo("Legolas");
-    //Act & Assert
-    assertEquals(Status.VIVO, elfoTeste11.getStatus());
+        //Arrange
+        Elfo elfoTeste11 = new Elfo("Legolas");
+        //Act & Assert
+        assertEquals(Status.VIVO, elfoTeste11.getStatus());
+        assertEquals(100, elfoTeste11.getVida());
     }    
 }
