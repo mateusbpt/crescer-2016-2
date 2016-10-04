@@ -10,7 +10,11 @@ public class Item {
     public void setQuantidade(int novaQuantidade) {
         quantidade = novaQuantidade;
     }
-
+    
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+    
     public int getQuantidade() {
         return quantidade;
     }
