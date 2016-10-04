@@ -16,11 +16,6 @@ public class ElfoVerde extends Elfo {
     }
 
     public void atirarFlecha(Dwarf dwarf) {
-        int quantidadeFlechas = getFlecha().getQuantidade();
-        if(quantidadeFlechas > 0){ 
-            getFlecha().setQuantidade(quantidadeFlechas - 1);   
-            dwarf.perderVida(); 
-            experiencia+=2;
-        }
+        atirarFlecha(dwarf, 2);
     }
 }
