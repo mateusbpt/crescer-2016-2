@@ -81,7 +81,7 @@ public class ElfoTest
         //Act
         elfoTeste4.atirarFlecha(dwarfTeste);
         //Assert
-        assertEquals(100, dwarfTeste.getVida()); 
+        assertEquals(100, dwarfTeste.getVida(), .0); 
     }
 
     @Test
@@ -96,7 +96,7 @@ public class ElfoTest
             flechasUtilizadas--;
         }
         //Assert
-        assertEquals(0, dwarfTeste2.getVida()); 
+        assertEquals(0, dwarfTeste2.getVida(), .0); 
     }
 
     @Test
@@ -177,6 +177,6 @@ public class ElfoTest
         Elfo elfoTeste11 = new Elfo("Legolas");
         //Act & Assert
         assertEquals(Status.VIVO, elfoTeste11.getStatus());
-        assertEquals(100, elfoTeste11.getVida());
+        assertEquals(100, elfoTeste11.getVida(), .0);
     }    
 }
