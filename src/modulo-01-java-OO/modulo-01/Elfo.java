@@ -1,5 +1,7 @@
 public class Elfo extends Personagem{
 
+    private static int contador;
+
     public Elfo(String nome) {
         //Chama construtor debaixo
         this(nome, 42);
@@ -9,7 +11,13 @@ public class Elfo extends Personagem{
         super(nome);
         super.vida = 100;
         inventario.adicionarItem(new Item("Arco", 1));
-        inventario.adicionarItem(new Item("Flechas", quantidadeFlechas  >= 0 ? quantidadeFlechas : 42));     
+        inventario.adicionarItem(new Item("Flechas", quantidadeFlechas  >= 0 ? quantidadeFlechas : 42)); 
+        contador++;
+    }
+
+    protected void finalize() throws Throwable {
+        super.finalize();
+        contador --;
     }
 
     public String toString(){
@@ -31,8 +39,7 @@ public class Elfo extends Personagem{
     public void atirarFlecha(Dwarf dwarf) {
         atirarFlecha(dwarf, 1);
     }
-    
-    
+
     protected void atirarFlecha(Dwarf dwarf, int quantidadeSoma) {
         int quantidadeFlechas = getFlecha().getQuantidade();
         if(quantidadeFlechas > 0){ //garante que o elfo não possua flechas negativas
@@ -40,6 +47,10 @@ public class Elfo extends Personagem{
             dwarf.perderVida(); 
             experiencia+=quantidadeSoma;
         }
+    }
+
+    public static int getContador(){
+        return contador;
     }
 }  
 
