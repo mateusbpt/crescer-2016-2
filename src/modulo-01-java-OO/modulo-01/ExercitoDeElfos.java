@@ -4,6 +4,10 @@ public class ExercitoDeElfos {
 
     ArrayList<Elfo> exercito = new ArrayList<>();    
 
+    public Elfo[] getExercitoDeElfos(){
+        return exercito.toArray(new Elfo[exercito.size()]);    
+    }
+
     public void alistarSoldado(Elfo soldado){
         boolean tipoSoldadoPossivel = soldado instanceof ElfoVerde || soldado instanceof ElfoNoturno;
         if(tipoSoldadoPossivel){
