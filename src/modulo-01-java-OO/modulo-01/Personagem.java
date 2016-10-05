@@ -1,4 +1,4 @@
-public class Personagem {
+public abstract class Personagem {
     protected String nome;
     protected Inventario inventario;
     protected Status status;
