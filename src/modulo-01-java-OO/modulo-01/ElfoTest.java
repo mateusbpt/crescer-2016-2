@@ -3,8 +3,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ElfoTest
-{
+public class ElfoTest {
+    @After
+    public void limpaTeste(){
+        System.gc();
+    }    
+
     @Test
     public void elfoNasceComNome() {
         // Arrange
@@ -171,12 +175,21 @@ public class ElfoTest
     }
 
     @Test
-
     public void elfoNasceVivo(){
         //Arrange
         Elfo elfoTeste11 = new Elfo("Legolas");
         //Act & Assert
         assertEquals(Status.VIVO, elfoTeste11.getStatus());
         assertEquals(100, elfoTeste11.getVida(), .0);
+    } 
+
+    @Test
+    public void nascem3Elfos(){
+        //Arrange
+        Elfo elfoTeste = new Elfo("Legolas");
+        Elfo elfoTeste1 = new Elfo("Galadriel");
+        Elfo elfoTeste2 = new Elfo("Arwen");
+        //Act & Assert
+        assertEquals(3, Elfo.getContador());
     }    
 }

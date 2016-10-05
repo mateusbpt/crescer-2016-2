@@ -4,7 +4,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class ElfoNoturnoTest {
-
+    @After
+    public void limpaTeste(){
+        System.gc();
+    }    
+    
     @Test
     public void elfoNoturnoAtacaUmaVez(){
         //Arrange
