@@ -8,19 +8,21 @@ public class BatalhaoEspecialDeElfos {
     public Elfo[] getExercitoDeElfosArray(){
         return (Elfo[])batalhaoDeElfos.values().toArray(new Elfo[batalhaoDeElfos.values().size()]);   
     }
-
+   
+    //Adicionado pelo problema acima
     public HashMap<String,Elfo> getExercitoDeElfos(){
         return batalhaoDeElfos;   
     }
 
+    //Tratar para que o HashMap não receba elfos com o nome igual, evitando a substituição
     public void alistarElfo(Elfo elfo){
         boolean tipoSoldadoPossivel = elfo instanceof ElfoVerde || elfo instanceof ElfoNoturno;
-        if(tipoSoldadoPossivel){
+        boolean chaveEmUso = batalhaoDeElfos.containsKey(elfo.getNome());
+        if(tipoSoldadoPossivel && !chaveEmUso){
             batalhaoDeElfos.put(elfo.getNome(), elfo);
         }
     }
 
-    //Ajustar: problema se vários elfos tiverem o mesmo nome
     public Elfo buscarPeloNome(String chave){
         return batalhaoDeElfos.get(chave);  
     }

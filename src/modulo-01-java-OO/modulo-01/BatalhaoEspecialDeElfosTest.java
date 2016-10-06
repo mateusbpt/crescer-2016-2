@@ -64,7 +64,6 @@ public class BatalhaoEspecialDeElfosTest {
         assertNull(batalhao.buscarPeloNome(elfo.getNome()));
     }
 
-    //Aqui está o bug
     @Test
     public void buscarElfoNoBatalhaoPeloNomeTendoVariosComOMesmoNome() {
         BatalhaoEspecialDeElfos batalhao = new BatalhaoEspecialDeElfos();
@@ -74,7 +73,7 @@ public class BatalhaoEspecialDeElfosTest {
         batalhao.alistarElfo(elfoNoturno);
         batalhao.alistarElfo(elfoNoturno1);
         batalhao.alistarElfo(elfoNoturno2);
-        assertEquals(elfoNoturno2, batalhao.buscarPeloNome("Black Legolas"));
+        assertEquals(elfoNoturno, batalhao.buscarPeloNome("Black Legolas"));
     }
 
     @Test
@@ -88,11 +87,57 @@ public class BatalhaoEspecialDeElfosTest {
         batalhao.alistarElfo(elfoVerde1);
         ArrayList<Elfo> resultado = batalhao.buscarPeloStatus(Status.VIVO);
         assertEquals(3, resultado.size());
-        assertEquals(elfoNoturno, resultado.get(0));
-        assertEquals(elfoVerde, resultado.get(1));
-        assertEquals(elfoVerde1, resultado.get(2));
+        assertTrue(resultado.contains(elfoNoturno));
+        assertTrue(resultado.contains(elfoVerde));
+        assertTrue(resultado.contains(elfoVerde1));
     }
 
+    @Test
+    public void buscarPorStatusMorto() {
+        BatalhaoEspecialDeElfos batalhao = new BatalhaoEspecialDeElfos();
+        Elfo elfoVerde = new ElfoVerde("Green Legolas");
+        Elfo elfoNoturno = new ElfoNoturno("Black Legolas");
+        Elfo elfoVerde1 = new ElfoVerde("Green Legolas 2");
+        batalhao.alistarElfo(elfoNoturno);
+        batalhao.alistarElfo(elfoVerde);
+        batalhao.alistarElfo(elfoVerde1);
+        ArrayList<Elfo> resultado = batalhao.buscarPeloStatus(Status.MORTO);
+        assertEquals(0, resultado.size());
+        assertFalse(resultado.contains(elfoNoturno));
+        assertFalse(resultado.contains(elfoVerde));
+        assertFalse(resultado.contains(elfoVerde1));
+    }
+    
+    @Test
+    public void buscarPorStatusVivoSemElfosVivos() {
+        BatalhaoEspecialDeElfos batalhao = new BatalhaoEspecialDeElfos();
+        Elfo elfoNoturno = elfoMorto();
+        batalhao.alistarElfo(elfoNoturno);
+        ArrayList<Elfo> resultado = batalhao.buscarPeloStatus(Status.MORTO);
+        assertEquals(1, resultado.size());
+        assertTrue(resultado.contains(elfoNoturno));
+    }
+    
+    @Test
+    public void buscarPorStatusMortoSemElfosMortos() {
+        BatalhaoEspecialDeElfos batalhao = new BatalhaoEspecialDeElfos();
+        Elfo elfoVerde = new ElfoVerde("Green Legolas");
+        Elfo elfoNoturno = new ElfoNoturno("Black Legolas");
+        Elfo elfoVerde1 = new ElfoVerde("Green Legolas 2");
+        batalhao.alistarElfo(elfoNoturno);
+        batalhao.alistarElfo(elfoVerde);
+        batalhao.alistarElfo(elfoVerde1);
+        assertTrue(batalhao.buscarPeloStatus(Status.MORTO).isEmpty());
+    }
+       
+    @Test
+    public void buscarPorStatusMortoComElfosMortos() {
+        BatalhaoEspecialDeElfos batalhao = new BatalhaoEspecialDeElfos();
+        Elfo elfoNoturno = elfoMorto();
+        batalhao.alistarElfo(elfoNoturno);
+        assertTrue(batalhao.buscarPeloStatus(Status.VIVO).isEmpty());
+    }
+    
     private ElfoNoturno elfoMorto() {
         ElfoNoturno elfo = new ElfoNoturno("Legolas kamikaze", 90);
         for (int i = 0; i < 90; i++){
@@ -100,5 +145,4 @@ public class BatalhaoEspecialDeElfosTest {
         }
         return elfo;
     }
-    //TO-DO: ainda faltam Testes para o método buscarPorStatus
 }
