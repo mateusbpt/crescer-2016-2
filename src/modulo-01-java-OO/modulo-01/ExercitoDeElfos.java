@@ -8,7 +8,7 @@ public class ExercitoDeElfos {
         return exercito.toArray(new Elfo[exercito.size()]);    
     }
 
-    public void alistarSoldado(Elfo soldado){
+    public void alistarElfo(Elfo soldado){
         boolean tipoSoldadoPossivel = soldado instanceof ElfoVerde || soldado instanceof ElfoNoturno;
         if(tipoSoldadoPossivel){
             exercito.add(soldado);

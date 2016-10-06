@@ -15,7 +15,7 @@ public class ExercitoDeElfosTest{
         ElfoVerde elfo = new ElfoVerde("Green Legolas");
         ExercitoDeElfos exercito = new ExercitoDeElfos();
         //Act
-        exercito.alistarSoldado(elfo);
+        exercito.alistarElfo(elfo);
         //Assert
         assertEquals(elfo,exercito.buscarPeloNome(elfo.getNome()));
 
@@ -27,7 +27,7 @@ public class ExercitoDeElfosTest{
         ElfoNoturno elfo = new ElfoNoturno("Black Legolas");
         ExercitoDeElfos exercito = new ExercitoDeElfos();
         //Act
-        exercito.alistarSoldado(elfo);
+        exercito.alistarElfo(elfo);
         //Assert
         assertEquals(elfo,exercito.buscarPeloNome(elfo.getNome()));
 
@@ -40,8 +40,8 @@ public class ExercitoDeElfosTest{
         ElfoVerde elfo1 = new ElfoVerde("Green Legolas");
         ExercitoDeElfos exercito = new ExercitoDeElfos();
         //Act
-        exercito.alistarSoldado(elfo);
-        exercito.alistarSoldado(elfo1);
+        exercito.alistarElfo(elfo);
+        exercito.alistarElfo(elfo1);
         //Assert
         assertEquals(elfo,exercito.buscarPeloNome(elfo.getNome()));
         assertEquals(elfo1,exercito.buscarPeloNome(elfo1.getNome()));
@@ -53,7 +53,7 @@ public class ExercitoDeElfosTest{
         Elfo elfo = new Elfo("Legolas");
         ExercitoDeElfos exercito = new ExercitoDeElfos();
         //Act
-        exercito.alistarSoldado(elfo);
+        exercito.alistarElfo(elfo);
         //Assert
         assertNull(exercito.buscarPeloNome(elfo.getNome()));
     }
@@ -65,8 +65,8 @@ public class ExercitoDeElfosTest{
         ElfoVerde elfo1 = new ElfoVerde("Green Legolas");
         ExercitoDeElfos exercito = new ExercitoDeElfos();
         //Act
-        exercito.alistarSoldado(elfo);
-        exercito.alistarSoldado(elfo1);
+        exercito.alistarElfo(elfo);
+        exercito.alistarElfo(elfo1);
         //Assert
         assertTrue(exercito.buscarPeloStatus(Status.VIVO).contains(elfo));
         assertTrue(exercito.buscarPeloStatus(Status.VIVO).contains(elfo1));
@@ -79,8 +79,8 @@ public class ExercitoDeElfosTest{
         ElfoVerde elfo1 = new ElfoVerde("Green Legolas");
         ExercitoDeElfos exercito = new ExercitoDeElfos();
         //Act
-        exercito.alistarSoldado(elfo);
-        exercito.alistarSoldado(elfo1);
+        exercito.alistarElfo(elfo);
+        exercito.alistarElfo(elfo1);
         //Assert
         assertFalse(exercito.buscarPeloStatus(Status.MORTO).contains(elfo));
         assertFalse(exercito.buscarPeloStatus(Status.MORTO).contains(elfo1));
@@ -93,8 +93,8 @@ public class ExercitoDeElfosTest{
         ElfoNoturno elfo1 = new ElfoNoturno("Black Galadriel", 150);
         ExercitoDeElfos exercito = new ExercitoDeElfos();
         //Act
-        exercito.alistarSoldado(elfo);
-        exercito.alistarSoldado(elfo1);
+        exercito.alistarElfo(elfo);
+        exercito.alistarElfo(elfo1);
         int auxiliar = 90;
         while(auxiliar != 0){
             elfo.atirarFlecha(new Dwarf()); 
