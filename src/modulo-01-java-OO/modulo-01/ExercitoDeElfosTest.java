@@ -112,20 +112,7 @@ public class ExercitoDeElfosTest{
         ElfoNoturno elfo = new ElfoNoturno("Black Legolas");
         ExercitoDeElfos exercito = new ExercitoDeElfos();
         //Act & Assert
-        assertNull(exercito.buscarPeloStatus(Status.MORTO));
-        assertNull(exercito.buscarPeloStatus(Status.VIVO));
-    } 
-    
-    @Test
-    public void buscarElfoPeloStatusQueNaoExisteNoExercito(){
-        //Arrange
-        Elfo elfo = new Elfo("Legolas");
-        ExercitoDeElfos exercito = new ExercitoDeElfos();
-        //Act  
-        exercito.alistarSoldado(elfo);
-        //Assert
-        assertNull(exercito.buscarPeloStatus(Status.MORTO));
-        assertNull(exercito.buscarPeloStatus(Status.VIVO));
+         assertTrue(exercito.buscarPeloStatus(Status.MORTO).isEmpty());
     } 
 }   
 

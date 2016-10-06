@@ -16,28 +16,21 @@ public class ExercitoDeElfos {
     }
 
     public Elfo buscarPeloNome(String nome){
-        boolean exercitoVazio = exercito.size() == 0;
-        if(!exercitoVazio){
-            for(Elfo elfoAtual : exercito){
-                if(nome.equals(elfoAtual.getNome())){   
-                    return elfoAtual;
-                }
+        for(Elfo elfoAtual : exercito){
+            if(nome.equals(elfoAtual.getNome())){   
+                return elfoAtual;
             }
         }
         return null;
     }
 
     public ArrayList<Elfo> buscarPeloStatus (Status status){
-        boolean exercitoVazio = exercito.size() == 0;
         ArrayList<Elfo> retorno = new ArrayList<>();
-        if(!exercitoVazio){
-            for(Elfo elfoAtual : exercito){
-                if(status.equals(elfoAtual.getStatus())){   
-                    retorno.add(elfoAtual);    
-                }        
-            }
-            return retorno;
+        for(Elfo elfoAtual : exercito){
+            if(status.equals(elfoAtual.getStatus())){   
+                retorno.add(elfoAtual);    
+            }        
         }
-        return null;
+        return retorno;        
     }
 }
