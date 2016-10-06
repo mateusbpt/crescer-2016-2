@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class ExercitoDeElfos {
+public class ExercitoDeElfos implements Exercito{
 
     ArrayList<Elfo> exercito = new ArrayList<>();    
 
