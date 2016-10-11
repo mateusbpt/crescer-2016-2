@@ -4,11 +4,11 @@ import org.junit.Before;
 import org.junit.Test;
 import java.util.*;
 
-public class EstrategiaOrdenacaoDeElfosTest {
+public class EstrategiaNoturnosPorUltimoTest {
     @Test
     public void ordena3ElfosVerdes2ElfosNoturnos(){
         ArrayList<Elfo> elfos = new ArrayList<>();
-        EstrategiaOrdenacaoDeElfos elfosOrdenados = new EstrategiaOrdenacaoDeElfos();
+        EstrategiaNoturnosPorUltimo elfosOrdenados = new EstrategiaNoturnosPorUltimo();
 
         elfos.add(new ElfoVerde("Legolas"));
         elfos.add(new ElfoVerde("Legolas2"));
@@ -28,7 +28,7 @@ public class EstrategiaOrdenacaoDeElfosTest {
     @Test
     public void ordena3ElfosVerdes2ElfosNoturnosMortos(){
         ArrayList<Elfo> elfos = new ArrayList<>();
-        EstrategiaOrdenacaoDeElfos elfosOrdenados = new EstrategiaOrdenacaoDeElfos();
+        EstrategiaNoturnosPorUltimo elfosOrdenados = new EstrategiaNoturnosPorUltimo();
 
         elfos.add(new ElfoVerde("Legolas"));
         elfos.add(new ElfoVerde("Legolas2"));
