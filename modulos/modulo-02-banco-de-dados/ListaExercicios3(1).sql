@@ -1,10 +1,12 @@
 --Exercicio 7:
 Select emp.NomeEmpregado as Empregado,
-			dep.NomeDepartamento as Departamento,
-				ger.NomeEmpregado as Gerente
+			dep.NomeDepartamento as DepartamentoEmpregado,
+				ger.NomeEmpregado as Gerente,
+					depg.NomeDepartamento as DepartamentoGerente
 					from Empregado emp
 						left join Empregado ger on emp.IDGerente = ger.IDEmpregado
 							left join Departamento dep on dep.IDDepartamento = emp.IDDepartamento
+								left join Departamento depg on depg.IDDepartamento = ger.IDDepartamento
 							
 --Exercicio 8: 
 select IDEmpregado, 
@@ -22,8 +24,9 @@ select IDEmpregado,
 begin transaction 
 update CopiaEmpregado 
 	set Salario = Salario+((Salario/100)*14.5)
-		from CopiaEmpregado emp inner join Departamento dep on dep.IDDepartamento = emp.IDDepartamento
-								where Localizacao = 'SAO PAULO'		
+		from CopiaEmpregado emp 
+			inner join Departamento dep on dep.IDDepartamento = emp.IDDepartamento
+				where Localizacao = 'SAO PAULO'		
 commit	
 
 --Exercicio 9:
