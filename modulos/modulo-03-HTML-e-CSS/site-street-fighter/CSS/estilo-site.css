@@ -1,0 +1,59 @@
+   body {
+            background-image: url(imagens/back.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+             font-family: arial;
+   }
+        
+        .menu {
+            width: 500px;
+            height: 40px;
+            border: solid;
+            border-radius: 20px;
+            border-color: rgba(224, 224, 224, 0.8);
+            margin: 350px auto 0px;
+            background-color: rgba(224, 224, 224, 0.4);
+            color: white;
+            font-size: 15px;
+        }
+        
+            .menu > ul > li {
+                display: inline;
+                padding: 15px 10px;
+                margin: 15px 5px;
+            }
+
+                .menu > ul > li > a{
+                    color: white;
+                    font-weight: bold;
+                    text-shadow: black 0.1em 0.1em 0.2em;
+                }
+        
+        #titulo {
+            width: 60%;
+            height: 50px;
+            margin: 20px auto 0px;
+            background-color: black;
+            font-size: 20px;
+            text-align: justify;
+            color: silver;
+            line-height: 50px;
+            border-radius: 10px;
+            padding: 0px 40px;
+            font-weight: bold;
+        }
+        
+        #conteudo {
+            width: 60%;
+            height: auto;
+            margin: 0px auto;
+            background-color: rgb(224, 224, 224);
+            border-radius: 10px;
+            padding: 20px 40px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: black;
+        }
