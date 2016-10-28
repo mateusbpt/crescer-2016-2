@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using MarioKart.Corredores;
 using MarioKart.Equipamentos;
+using static MarioKart.Corredores.Habilidade;
 
 namespace MarioKart.Kart
 {
-    public class Kart
+    public abstract class Kart
     {
         public Kart(Corredor motorista)
         {
@@ -16,16 +17,37 @@ namespace MarioKart.Kart
             this.Equipamentos = new List<IEquipamento>();
         }
 
-        private Corredor Motorista { get; set; }
+        public Corredor Motorista { get; set; }
 
         protected List<IEquipamento> Equipamentos { get; set; }
 
-        private int Velocidade
+        public virtual int Velocidade
         {
             get
             {
-                return 0;
+                int somaVelocidade = 3 + (int)Motorista.HabilidadeCorredor + bonusEquipamento();
+
+                bool profissional = Motorista.HabilidadeCorredor == Nivel.Profissional;
+
+                return profissional ? somaVelocidade + Equipamentos.Count : somaVelocidade;
             }
+        }
+
+        public int bonusEquipamento()
+        {
+            int totalBonus = 0;
+
+            foreach (IEquipamento bonus in Equipamentos)
+            {
+                totalBonus += bonus.BonusEquipamento;
+            }
+
+            return totalBonus;
+        }
+
+        public void adicionarEquipamento(IEquipamento equipamento)
+        {
+            Equipamentos.Add(equipamento);
         }
     }
 

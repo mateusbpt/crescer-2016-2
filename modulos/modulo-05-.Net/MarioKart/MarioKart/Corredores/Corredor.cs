@@ -1,28 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MarioKart.Corredores
 {
     public class Corredor
     {
-        public Corredor(String nome, NivelHabilidade nivel)
+        public Corredor(string nome, Habilidade.Nivel nivel)
         {
             this.NomeCorredor = nome;
             this.HabilidadeCorredor = nivel;
         }
 
-        protected String NomeCorredor { get; set; }
+        public string NomeCorredor { get; private set; }
 
-        public NivelHabilidade HabilidadeCorredor { get; set; }
+        public Habilidade.Nivel HabilidadeCorredor { get; private set; }
 
     }
 
-    public enum NivelHabilidade
-    {
-        Noob, Mediano, Profissional
-    }
 }
 
