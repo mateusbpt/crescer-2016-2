@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MarioKart.Corredores;
 using static MarioKart.Corredores.Habilidade;
 using MarioKart.Kart;

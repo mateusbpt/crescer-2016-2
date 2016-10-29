@@ -25,9 +25,9 @@ namespace MarioKart.Kart
         {
             get
             {
-                int somaVelocidade = 3 + (int)Motorista.HabilidadeCorredor + bonusEquipamento();
+                var somaVelocidade = 3 + (int)Motorista.HabilidadeCorredor + bonusEquipamento();
 
-                bool profissional = Motorista.HabilidadeCorredor == Nivel.Profissional;
+                var profissional = Motorista.HabilidadeCorredor == Nivel.Profissional;
 
                 return profissional ? somaVelocidade + Equipamentos.Count : somaVelocidade;
             }
@@ -35,7 +35,7 @@ namespace MarioKart.Kart
 
         public int bonusEquipamento()
         {
-            int totalBonus = 0;
+            var totalBonus = 0;
 
             foreach (IEquipamento bonus in Equipamentos)
             {

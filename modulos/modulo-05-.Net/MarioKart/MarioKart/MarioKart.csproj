@@ -42,9 +42,11 @@
   <ItemGroup>
     <Compile Include="Corredores\Corredor.cs" />
     <Compile Include="Corredores\Habilidade.cs" />
+    <Compile Include="Equipamentos\FogueteDePlutonio.cs" />
     <Compile Include="Equipamentos\IEquipamento.cs" />
     <Compile Include="Equipamentos\MotorABaseDeLava.cs" />
     <Compile Include="Equipamentos\PneuDeCouroDeDragao.cs" />
+    <Compile Include="Equipamentos\UltraPack.cs" />
     <Compile Include="Kart\Dinam.cs" />
     <Compile Include="Kart\Kart.cs" />
     <Compile Include="Kart\Light.cs" />
