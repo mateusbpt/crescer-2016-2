@@ -50,6 +50,7 @@
     <Compile Include="Kart\Dinam.cs" />
     <Compile Include="Kart\Kart.cs" />
     <Compile Include="Kart\Light.cs" />
+    <Compile Include="Kart\SkyFusion.cs" />
     <Compile Include="Kart\Sonnar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
