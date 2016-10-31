@@ -197,11 +197,15 @@ namespace Repositorio
             var cargoFuncionarioComplexo = Funcionarios.Where(funcionario =>
                         funcionario.Cargo.Equals(funcionarioComplexo.Cargo)).Count();
 
+            var real = new CultureInfo("pt-BR");
+            var dolar = new CultureInfo("en-US");
+
             return new
-            {   //Falta ajustar para estilo de moeda
+            {
+
                 Nome = funcionarioComplexo.Nome,
                 DataNascimento = $"{funcionarioComplexo.DataNascimento.Day}/{funcionarioComplexo.DataNascimento.Month}/{funcionarioComplexo.DataNascimento.Year}",
-                SalarioRS = $"{funcionarioComplexo.Cargo.Salario}",
+                SalarioRS = 
                 SalarioUS = $"{funcionarioComplexo.Cargo.Salario}",
                 QuantidadeMesmoCargo = cargoFuncionarioComplexo
             };
