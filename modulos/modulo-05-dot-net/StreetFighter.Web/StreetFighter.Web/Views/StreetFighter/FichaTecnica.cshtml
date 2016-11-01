@@ -1,30 +1,30 @@
-﻿@Model StreetFighter.Web.Models.FichaTecnicaModel
+﻿@model StreetFighter.Web.Models.FichaTecnicaModel
 
 
 @{
-    ViewBag.Title = "FichaTecnica";
+    ViewBag.Title = "Ficha Técnica";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
     <img id="blanka" src="~/Content/imagens/blanka.png" alt="auto">
        
-        <p><strong>Primeira aparição:</strong>@(Model.PrimeiraAparicao)</p>
-        <p><strong>Data de Nascimento:</strong>@(Model.DataNascimento)</p>
-        <p><strong>Altura:</strong> 192 cm.</p>
-        <p><strong>Peso:</strong> 96 kg.</p>
-        <p><strong>Medidas:</strong> B198, C120, Q172.</p>
-        <p><strong>Tipo Sanguíneo:</strong> B.</p>
-        <p><strong>Habilidades Especiais:</strong> Caçar, Eletricidade.</p>
-        <p><strong>Gosta:</strong> Frutas tropicais, Pirarucu, Sua mãe.</p>
-        <p><strong>Desgosta:</strong> Army ants (espécie de formiga).</p>
-        <p><strong>Estilo de Luta:</strong> Luta Selvagem autodidata (Army Ants) / Capoeira.</p>
-        <p><strong>Origem:</strong> Brasil (lugar de nascença é provável como sendo Tailândia).</p>
-        <p><strong>Uma fala de vitória:</strong> "Ver você em ação é uma piada!".</p>
-        <p><strong>SSF2 nickname:</strong> "A selvagem criança da natureza".</p>
-        <p><strong>SFA3 nickname:</strong> "A animal pessoa amazônica".</p>
-        <p><strong>SF4 nickname:</strong> "Guerreiro da selva".</p>
-        <p><strong>SFA3 stage:</strong> Ramificação do Rio Madeira - pantano, Brasil (ramificação do rio Madeira: talvez possa ser Mato Grosso, ou Tocantins?). </p>
-        <p><strong>SF2 stage:</strong> Bacia do rio Amazonas (Brasil).</p>
-        <p><strong>Golpes Especiais Famosos</strong> Electric Thunder, Rolling Attack.</p>
+        <p><strong>Primeira aparição:</strong> @(Model.PrimeiraAparicao)</p>
+        <p><strong>Data de Nascimento:</strong> @(Model.DataNascimento.ToShortDateString()).</p>
+        <p><strong>Altura:</strong> @(Model.Altura) cm.</p>
+        <p><strong>Peso:</strong> @(Model.Peso) kg.</p>
+        <p><strong>Medidas:</strong> @(Model.Medidas)</p>
+        <p><strong>Tipo Sanguíneo:</strong> @(Model.TipoSanguineo).</p>
+        <p><strong>Habilidades Especiais:</strong> @(Model.HabilidadeEspeciais)</p>
+        <p><strong>Gosta:</strong> @(Model.Gosta)</p>
+        <p><strong>Desgosta:</strong> @(Model.Desgosta)</p>
+        <p><strong>Estilo de Luta:</strong> @(Model.EstiloDeLuta)</p>
+        <p><strong>Origem:</strong> @(Model.Origem)</p>
+        <p><strong>Uma fala de vitória:</strong> "@(Model.FalaDeVitoria)".</p>
+        <p><strong>SSF2 nickname:</strong> "@(Model.SSF2Nickname)".</p>
+        <p><strong>SFA3 nickname:</strong> "@(Model.SSF3Nickname)".</p>
+        <p><strong>SF4 nickname:</strong> "@(Model.SF4Nickname)".</p>
+        <p><strong>SFA3 stage:</strong> @(Model.SFA3Stage)</p>
+        <p><strong>SF2 stage:</strong> @(Model.SF2Stage)</p>
+        <p><strong>Golpes Especiais Famosos</strong> @(Model.GolpesFamosos)</p>
  
