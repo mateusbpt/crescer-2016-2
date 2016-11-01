@@ -32,8 +32,8 @@ namespace StreetFighter.Web.Controllers
                 Origem = "Brasil (lugar de nascença é provável como sendo Tailândia).",
                 FalaDeVitoria = "Ver você em ação é uma piada!.",
                 SSF2Nickname = "A selvagem criança da natureza.",
-                SSF3Nickname = "A animal pessoa amazônica.",
-                SF4Nickname = "Guerreiro da selva.",
+                SSF3Nickname = "A animal pessoa amazônica",
+                SF4Nickname = "Guerreiro da selva",
                 SFA3Stage = "Ramificação do Rio Madeira - pantano, Brasil (ramificação do rio Madeira: talvez possa ser Mato Grosso, ou Tocantins?).",
                 SF2Stage = "Bacia do rio Amazonas (Brasil).",
                 GolpesFamosos = "Electric Thunder, Rolling Attack."

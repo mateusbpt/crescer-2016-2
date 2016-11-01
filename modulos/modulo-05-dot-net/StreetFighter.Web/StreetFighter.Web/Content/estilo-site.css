@@ -3,7 +3,7 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: center;
-             font-family: arial;
+            font-family: arial;
    }
         
         .menu {
@@ -11,16 +11,17 @@
             height: 50px;
             border: solid 1px;
             border-radius: 15px;
-            border-color: rgba(200, 200, 200, 0.5);
-            margin: 340px auto 30px;
-            background-color: rgba(50, 50, 50, 0.2);
+            border-color: rgba(150, 150, 150, 0.95);
+            margin: 340px auto 20px;
+            background-color: rgba(50, 50, 50, 0.5);
             color: white;
             font-size: 15px;
+            text-transform: uppercase;
         }
         
             .menu > ul > li {
                 display: inline-block;
-                padding: 0px 15px 5px;
+                padding: 0px 10px 5px;
                 margin: 5px 10px;
             }
 
@@ -48,7 +49,7 @@
             width: 60%;
             height: auto;
             margin: 0px auto;
-            background-color: rgb(224, 224, 224);
+            background-color: rgba(150, 150, 150, 0.95);
             border-radius: 10px;
             padding: 20px 40px;
         }
