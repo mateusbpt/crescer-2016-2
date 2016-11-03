@@ -16,10 +16,10 @@ namespace StreetFighter.Web.Models
         public DateTime DataNascimento { get; set; }
 
         [Required]
-        public decimal? Altura { get; set; }
+        public int? Altura { get; set; }
 
         [Required]
-        public int? Peso { get; set; }
+        public decimal? Peso { get; set; }
         
         [Required]
         public string Origem { get; set; }

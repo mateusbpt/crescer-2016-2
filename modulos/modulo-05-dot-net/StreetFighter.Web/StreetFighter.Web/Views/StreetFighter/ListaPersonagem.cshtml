@@ -1,0 +1,28 @@
+﻿@model StreetFighter.Dominio.Personagem
+
+@{
+    ViewBag.Title = "Lista de Personagens";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<ul class="nav nav-pills">
+    <li role="presentation" class="active"><a href="~/StreetFighter/Cadastro">Novo Cadastro</a></li>
+</ul>
+
+<form class="navbar-form navbar-right" role="search">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Digite o nome...">
+    </div>
+    <button type="submit" class="btn btn-default">Pesquisa</button>
+</form>
+
+<h3 id="TituloLista">Personagens Cadastrados: </h3>
+
+
+<div class="list-group">
+    
+    {
+        <a href="~/StreetFighter/FichaTecnica" class="list-group-item">@(Model.Nome)</a>
+    }
+</div>

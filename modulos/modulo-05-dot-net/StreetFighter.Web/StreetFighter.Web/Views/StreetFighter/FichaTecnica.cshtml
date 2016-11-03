@@ -10,8 +10,14 @@
 
 <h2>@(Model.Nome)</h2>
 
-<img id="personagem" src="@Model.Imagem" alt="auto">
-
+@if (Model.Imagem == null)
+{
+    <img id="personagem" src="http://imguol.com/c/bol/fotos/84/2015/12/11/4-e-o-john-travolta-alias-fez-o-maior-sucesso-nos-gifs-confusos-1449831720205_300x300.jpg" alt="auto">
+}
+else
+{
+    <img id="personagem" src="@Model.Imagem" alt="auto">
+}
 <p><strong>Data de Nascimento:</strong> @(String.Format("{0} de {1} de {2}.", Model.DataNascimento.Day, Model.DataNascimento.ToString("MMMM", new CultureInfo("pt-BR")), Model.DataNascimento.Year))</p>
 <p><strong>Altura:</strong> @(Model.Altura) cm.</p>
 <p><strong>Peso:</strong> @(Model.Peso) kg.</p>

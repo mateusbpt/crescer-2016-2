@@ -36,6 +36,11 @@ namespace StreetFighter.Web.Controllers
             return View();
         }
 
+        public ActionResult ListaPersonagem()
+        { 
+            return View();
+        }
+
         public ActionResult Salvar(FichaTecnicaModel model)
         {
             PopularPaises();
