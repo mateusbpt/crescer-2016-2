@@ -1,30 +1,19 @@
 ﻿@model StreetFighter.Web.Models.FichaTecnicaModel
 
+@using System.Globalization
+
 
 @{
     ViewBag.Title = "Ficha Técnica";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2>@(Model.Nome)</h2>
 
-    <img id="blanka" src="~/Content/imagens/blanka.png" alt="auto">
-       
-        <p><strong>Primeira aparição:</strong> @(Model.PrimeiraAparicao)</p>
-        <p><strong>Data de Nascimento:</strong> @(Model.DataNascimento.ToShortDateString()).</p>
-        <p><strong>Altura:</strong> @(Model.Altura) cm.</p>
-        <p><strong>Peso:</strong> @(Model.Peso) kg.</p>
-        <p><strong>Medidas:</strong> @(Model.Medidas)</p>
-        <p><strong>Tipo Sanguíneo:</strong> @(Model.TipoSanguineo).</p>
-        <p><strong>Habilidades Especiais:</strong> @(Model.HabilidadeEspeciais)</p>
-        <p><strong>Gosta:</strong> @(Model.Gosta)</p>
-        <p><strong>Desgosta:</strong> @(Model.Desgosta)</p>
-        <p><strong>Estilo de Luta:</strong> @(Model.EstiloDeLuta)</p>
-        <p><strong>Origem:</strong> @(Model.Origem)</p>
-        <p><strong>Uma fala de vitória:</strong> "@(Model.FalaDeVitoria)".</p>
-        <p><strong>SSF2 nickname:</strong> "@(Model.SSF2Nickname)".</p>
-        <p><strong>SFA3 nickname:</strong> "@(Model.SSF3Nickname)".</p>
-        <p><strong>SF4 nickname:</strong> "@(Model.SF4Nickname)".</p>
-        <p><strong>SFA3 stage:</strong> @(Model.SFA3Stage)</p>
-        <p><strong>SF2 stage:</strong> @(Model.SF2Stage)</p>
-        <p><strong>Golpes Especiais Famosos:</strong> @(Model.GolpesFamosos)</p>
- 
+<img id="personagem" src="@Model.Imagem" alt="auto">
+
+<p><strong>Data de Nascimento:</strong> @(String.Format("{0} de {1} de {2}.", Model.DataNascimento.Day, Model.DataNascimento.ToString("MMMM", new CultureInfo("pt-BR")), Model.DataNascimento.Year))</p>
+<p><strong>Altura:</strong> @(Model.Altura) cm.</p>
+<p><strong>Peso:</strong> @(Model.Peso) kg.</p>
+<p><strong>Origem:</strong> @(Model.Origem).</p>
+<p><strong>Golpes Especiais Famosos:</strong> @(Model.GolpesEspeciais).</p>

@@ -1,70 +1,96 @@
-   body {
-            background-image: url(imagens/back.jpg);
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center;
-            font-family: arial;
-   }
-        
-        .menu {
-            width: 550px;
-            height: 50px;
-            border: solid 1px;
-            border-radius: 15px;
-            border-color: rgba(150, 150, 150, 0.95);
-            margin: 340px auto 20px;
-            background-color: rgba(50, 50, 50, 0.5);
+body {
+    background-image: url(imagens/background.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    font-family: arial;
+}
+
+.menu {
+    width: 550px;
+    height: 50px;
+    border: solid 1px;
+    border-radius: 15px;
+    border-color: rgba(150, 150, 150, 0.95);
+    margin: 450px auto 20px;
+    background-color: rgba(50, 50, 50, 0.5);
+    color: white;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding-top: 10px;
+}
+
+    .menu > ul > li {
+        display: inline-block;
+        padding: 0px 10px 5px;
+        margin: 5px 9px;
+    }
+
+        .menu > ul > li > a {
             color: white;
-            font-size: 15px;
-            text-transform: uppercase;
-        }
-        
-            .menu > ul > li {
-                display: inline-block;
-                padding: 0px 10px 5px;
-                margin: 5px 10px;
-            }
-
-                .menu > ul > li > a{
-                    color: white;
-                    font-weight: bold;
-                    text-shadow: black 0.1em 0.1em 0.2em;
-                }
-        
-        #titulo {
-            width: 60%;
-            height: 50px;
-            margin: 20px auto 0px;
-            background-color: black;
-            font-size: 20px;
-            text-align: justify;
-            color: silver;
-            line-height: 50px;
-            border-radius: 10px;
-            padding: 0px 40px;
             font-weight: bold;
-        }
-        
-        #conteudo {
-            width: 60%;
-            height: auto;
-            margin: 0px auto;
-            background-color: rgba(150, 150, 150, 0.95);
-            border-radius: 10px;
-            padding: 20px 40px;
-        }
-        
-        a {
-            text-decoration: none;
-            color: black;
+            text-shadow: black 0.1em 0.1em 0.2em;
         }
 
-        #blanka {      
-            float: left;
-        }
+#titulo {
+    width: 60%;
+    height: 50px;
+    margin: 20px auto 0px;
+    background-color: black;
+    font-size: 20px;
+    text-align: justify;
+    color: silver;
+    line-height: 50px;
+    border-radius: 10px;
+    padding: 0px 40px;
+    font-weight: bold;
+}
+
+#conteudo {
+    width: 60%;
+    height: 600px;
+    margin: 0px auto;
+    background-color: rgba(150, 150, 150, 0.95);
+    border-radius: 10px;
+    padding: 20px 40px;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#personagem {
+    float: left;
+    padding-right: 20px;
+    max-width: 250px;
+    width: auto;
+}
 
 
-        p{
-            margin: 7px;
-            text-align: justify;
+p {
+    margin: 2px;
+    text-align: justify;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+  -webkit-border-radius: 5px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #bababa;
+  -webkit-border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  height: 10px;
+  background-color: #000;
+  -webkit-border-radius: 3px;
+}
+
+ .field-validation-error {
+            color: #a94442;
         }
