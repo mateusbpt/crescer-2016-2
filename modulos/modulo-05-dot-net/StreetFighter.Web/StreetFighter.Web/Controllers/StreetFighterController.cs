@@ -1,32 +1,44 @@
-﻿using StreetFighter.Web.Models;
+﻿using StreetFighter.Aplicativo;
+using StreetFighter.Dominio;
+using StreetFighter.Web.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace StreetFighter.Web.Controllers
 {
     public class StreetFighterController : Controller
     {
+        PersonagemAplicativo aplicativo = new PersonagemAplicativo();
 
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult FichaTecnica()
+        public ActionResult FichaTecnica(int id)
         {
-            var blanka = new FichaTecnicaModel()
-            {
-                Nome = "Blanka",
-                Imagem = "http://www.streetfighter.com.br/upload/editor/20120823194105_127.png",
-                DataNascimento = new DateTime(1966, 2, 12),
-                Altura = 192,
-                Peso = 96,
-                Origem = "Brasil",
-                GolpesEspeciais = "Electric Thunder, Rolling Attack"
-            };
+            var personagemSelecionado = aplicativo.BuscarPeloId(id);
 
-            return View(blanka);
+            if (personagemSelecionado != null)
+            {
+                var model = new FichaTecnicaModel()
+                {
+                    Nome = personagemSelecionado.Nome,
+                    Origem = personagemSelecionado.Origem,
+                    DataNascimento = personagemSelecionado.DataNascimento,
+                    GolpesEspeciais = personagemSelecionado.GolpesEspeciais,
+                    Peso = personagemSelecionado.Peso,
+                    Altura = personagemSelecionado.Altura,
+                    Imagem = personagemSelecionado.Imagem,
+                };
+                return View(model);
+            }
+
+            ModelState.AddModelError("", "Personagem não cadastrado");
+            return new HttpNotFoundResult();
+
         }
 
         public ActionResult Cadastro()
@@ -36,9 +48,23 @@ namespace StreetFighter.Web.Controllers
             return View();
         }
 
-        public ActionResult ListaPersonagem()
-        { 
+        public ActionResult ListaPersonagem(string filtro)
+        {
+            List<Personagem> personagens = aplicativo.ListarPersonagens(filtro);
+
+            if (personagens.Count != 0)
+            {
+                return View(personagens);
+            }
+
+            ViewBag.ListaVazia = "Não há personagens cadastrados...";
             return View();
+
+        }
+
+        public ActionResult Pesquisar(string filtro)
+        { 
+            return View("ListaPersonagem");
         }
 
         public ActionResult Salvar(FichaTecnicaModel model)

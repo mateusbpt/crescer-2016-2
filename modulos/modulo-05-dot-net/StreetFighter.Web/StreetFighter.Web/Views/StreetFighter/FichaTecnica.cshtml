@@ -10,7 +10,7 @@
 
 <h2>@(Model.Nome)</h2>
 
-@if (Model.Imagem == null)
+@if (Model.Imagem.Equals("default"))
 {
     <img id="personagem" src="http://imguol.com/c/bol/fotos/84/2015/12/11/4-e-o-john-travolta-alias-fez-o-maior-sucesso-nos-gifs-confusos-1449831720205_300x300.jpg" alt="auto">
 }
