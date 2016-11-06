@@ -23,3 +23,9 @@ else
 <p><strong>Peso:</strong> @(Model.Peso) kg.</p>
 <p><strong>Origem:</strong> @(Model.Origem).</p>
 <p><strong>Golpes Especiais Famosos:</strong> @(Model.GolpesEspeciais).</p>
+
+<div id="voltar">
+    @Html.ActionLink("Voltar", "ListaPersonagem", null, new { @class = "col-sm-2 btn btn-default" })
+</div>
+
+

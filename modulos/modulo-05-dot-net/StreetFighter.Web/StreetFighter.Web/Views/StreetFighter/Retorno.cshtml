@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "Retorno";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4 id="mensagem-retorno">@ViewBag.Mensagem</h4>
+
+<img id="imagem-retorno" src="http://i2.kym-cdn.com/entries/icons/original/000/012/982/post-19715-Brent-Rambo-gif-thumbs-up-imgu-L3yP.gif">
+
+@Html.ActionLink("Voltar", "ListaPersonagem", null, new { @class = "col-sm-2 btn btn-default" })

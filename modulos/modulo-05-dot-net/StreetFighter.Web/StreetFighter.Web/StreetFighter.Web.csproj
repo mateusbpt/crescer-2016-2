@@ -140,6 +140,7 @@
     <Content Include="Views\StreetFighter\Cadastro.cshtml" />
     <Content Include="Views\StreetFighter\Sobre.cshtml" />
     <Content Include="Views\StreetFighter\ListaPersonagem.cshtml" />
+    <Content Include="Views\StreetFighter\Retorno.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

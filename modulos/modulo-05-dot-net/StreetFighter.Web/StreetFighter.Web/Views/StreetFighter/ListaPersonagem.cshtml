@@ -5,14 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-<ul class="nav nav-pills">
-    <li role="presentation" class="active"><a href="~/StreetFighter/Cadastro">Novo Cadastro</a></li>
-</ul>
+@Html.ActionLink("Novo Cadastro", "Cadastro", null, new { @class = "col-sm-4 btn btn-default", id ="botao-cadastro" })
 
 @using (Html.BeginForm("ListaPersonagem","StreetFighter", FormMethod.Get))
 {
-   <form class="navbar-form navbar-right" role="search">
+   <form class="navbar-form navbar-right" role="search" id="pesquisa">
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Digite sua pesquisa..." name="filtro">
         </div>
@@ -27,10 +24,13 @@
     }
     else
     {
-        <h3 id="lista-personagens">Personagens Cadastrados: </h3>
+        <h4 id="lista-personagens">Personagens Cadastrados: </h4>
         foreach (var personagem in Model)
         {
-            <a href="~/StreetFighter/FichaTecnica?Id=@(personagem.Id)" class="list-group-item">@(personagem.Nome)</a>
+            @Html.ActionLink(personagem.Nome, "FichaTecnica", new { id = personagem.Id }, new { @class = "col-sm-8 btn btn-default" })
+            @Html.ActionLink("Editar", "Editar", new { id = personagem.Id }, new { @class = "col-sm-2 btn btn-default" })
+            @Html.ActionLink("Excluir", "Excluir", new { id = personagem.Id }, new { @class = "col-sm-2 btn btn-default" })
+            
         }
     }
 </div>

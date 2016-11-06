@@ -5,14 +5,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@ViewBag.Mensagem</h2>
+<h3>@ViewBag.Mensagem</h3>
 
 @using (Html.BeginForm("Salvar","StreetFighter", FormMethod.Post, new { @class = "form-horizontal" }))
 {
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
+    <div class="hidden">
+        @Html.LabelFor(model => model.Id, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-10">
+            @Html.TextBoxFor(model => model.Id, new { @class = "form-control" })
+        </div>
+    </div>
+
     <div class="form-group">
-        @Html.LabelFor(model => model.Nome, new { @class = "col-sm-2 control-label" })
+        @Html.LabelFor(model => model.Nome, new { @class = "col-sm-2 control-label", @placeholder = "Digite o nome..." })
         <div class="col-sm-10">
             @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Nome)
@@ -20,7 +27,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.DataNascimento, new { @class = "col-sm-2 control-label" })
+        @Html.LabelFor(model => model.DataNascimento, new { @class = "col-sm-2 control-label", @placeholder = "Digite a Data de Nascimento..." })
         <div class="col-sm-10">
             @Html.TextBoxFor(model => model.DataNascimento, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.DataNascimento)
@@ -28,7 +35,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Altura, new { @class = "col-sm-2 control-label" })
+        @Html.LabelFor(model => model.Altura, new { @class = "col-sm-2 control-label", @placeholder = "Digite a Altura..." })
         <div class="col-sm-10">
             @Html.TextBoxFor(model => model.Altura, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Altura)
@@ -36,7 +43,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Peso, new { @class = "col-sm-2 control-label" })
+        @Html.LabelFor(model => model.Peso, new { @class = "col-sm-2 control-label", @placeholder = "Digite o Peso..." })
         <div class="col-sm-10">
             @Html.TextBoxFor(model => model.Peso, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Peso)
@@ -51,9 +58,8 @@
         </div>
     </div>
 
-
     <div class="form-group">
-        @Html.LabelFor(model => model.GolpesEspeciais, new { @class = "col-sm-2 control-label" })
+        @Html.LabelFor(model => model.GolpesEspeciais, new { @class = "col-sm-2 control-label", @placeholder = "Digite os Golpes Especiais..." })
         <div class="col-sm-10">
             @Html.TextBoxFor(model => model.GolpesEspeciais, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.GolpesEspeciais)
@@ -61,7 +67,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Imagem, new { @class = "col-sm-2 control-label" })
+        @Html.LabelFor(model => model.Imagem, new { @class = "col-sm-2 control-label", @placeholder = "Digite o link da Imagem..."})
         <div class="col-sm-10">
             @Html.TextBoxFor(model => model.Imagem, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Imagem)
@@ -69,13 +75,12 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.PersonagemOculto, new { @class = "col-sm-2 control-label" })
+        @Html.LabelFor(model => model.PersonagemOculto, new { @class = "col-sm-2 control-label"})
         <div class="col-sm-10">
             @Html.CheckBoxFor(model => model.PersonagemOculto)
             @Html.ValidationMessageFor(model => model.PersonagemOculto)
         </div>
     </div>
-
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">

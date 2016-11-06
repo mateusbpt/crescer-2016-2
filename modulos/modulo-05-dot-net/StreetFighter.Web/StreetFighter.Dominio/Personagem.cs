@@ -49,6 +49,10 @@ namespace StreetFighter.Dominio
                   imagem
                   )
         {
+            if (nome.ToUpperInvariant().Contains("NUNES"))
+                throw new RegraNegocioException("Não é permitido cadastrar um personagem overpowered.");
+            if (origem.ToUpperInvariant().Contains("MDP"))
+                throw new RegraNegocioException($"Somente um personagem pode ser dessa região e esse personagem não é o { nome }.");
             this.Id = id;
         }
 
@@ -64,6 +68,10 @@ namespace StreetFighter.Dominio
             string imagem = "default"
             )
         {
+            if (nome.ToUpperInvariant().Contains("NUNES"))
+                throw new RegraNegocioException("Não é permitido cadastrar um personagem overpowered.");
+            if (origem.ToUpperInvariant().Contains("MDP"))
+                throw new RegraNegocioException($"Somente um personagem pode ser dessa região e esse personagem não é o { nome }.");
             this.Nome = nome;
             this.Origem = origem;
             this.DataNascimento = dataNascimento;

@@ -1,2 +1,1 @@
-1;HueBr;BR;12/12/2012 00:00:00;12;12,2;QuaQuaQuaQua, hue hue Br Br;True;http://www.caralivro.com.br/data/covers/jsxjvCXq53C-1438962514.jpg;
-2;Oculto;MDP;01/01/0001 00:00:00;0;0;??????????;True;default;
+1;HueBr;BR;12/12/2012 00:00:00;1;1;Qua qua qua qua hue br;True;http://www.caralivro.com.br/data/covers/jsxjvCXq53C-1438962514.jpg;

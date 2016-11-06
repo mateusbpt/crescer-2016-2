@@ -69,15 +69,41 @@ namespace StreetFighter.Repositorio
 
         }
 
+        public void ExcluirPersonagem(Personagem personagem)
+        {
+            var auxiliar = ListarPersonagens().Where(per => per.Id != personagem.Id).OrderBy(id => id.Id);
+
+            File.WriteAllText(CaminhoDoArquivo, string.Empty);
+
+            foreach (var per in auxiliar)
+            {
+                IncluirPersonagem(per);
+            }
+
+        }
 
         public void EditarPersonagem(Personagem personagem)
         {
-            throw new NotImplementedException();
-        }
+            var auxiliar = ListarPersonagens();
 
-        public void ExcluirPersonagem(Personagem personagem)
-        {
-            throw new NotImplementedException();
+            File.WriteAllText(CaminhoDoArquivo, string.Empty);
+
+            for (int i = 0; i < auxiliar.Count; i++)
+            {
+                if (auxiliar[i].Id == personagem.Id)
+                {
+                    auxiliar.RemoveAt(i);
+                    auxiliar.Add(personagem);
+                }
+            }
+            
+            auxiliar.OrderBy(per => per.Id);
+
+            foreach (var per in auxiliar)
+            {
+                IncluirPersonagem(per);
+            }
+
         }
 
         public int VerificaUltimoIdUtilizado()

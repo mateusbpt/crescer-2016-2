@@ -31,7 +31,7 @@ namespace StreetFighter.Web.Controllers
                     GolpesEspeciais = personagemSelecionado.GolpesEspeciais,
                     Peso = personagemSelecionado.Peso,
                     Altura = personagemSelecionado.Altura,
-                    Imagem = personagemSelecionado.Imagem,
+                    Imagem = personagemSelecionado.Imagem
                 };
                 return View(model);
             }
@@ -45,6 +45,11 @@ namespace StreetFighter.Web.Controllers
         {
             PopularPaises();
 
+            return View();
+        }
+
+        public ActionResult Retorno()
+        {
             return View();
         }
 
@@ -63,7 +68,7 @@ namespace StreetFighter.Web.Controllers
         }
 
         public ActionResult Pesquisar(string filtro)
-        { 
+        {
             return View("ListaPersonagem");
         }
 
@@ -71,11 +76,15 @@ namespace StreetFighter.Web.Controllers
         public ActionResult Salvar(FichaTecnicaModel model)
         {
             PopularPaises();
+
             if (ModelState.IsValid)
             {
-                ViewBag.Mensagem = "Cadastro concluído com sucesso.";
-                Personagem personagem = new Personagem
+                try
+                {
+
+                    Personagem personagem = new Personagem
                     (
+                    model.Id == null ? 0 : (int)model.Id,
                     model.Nome,
                     model.Origem,
                     model.DataNascimento,
@@ -83,18 +92,66 @@ namespace StreetFighter.Web.Controllers
                     model.Peso,
                     model.GolpesEspeciais,
                     model.PersonagemOculto,
-                    model.Imagem
+                    model.Imagem == null ? "default" : model.Imagem
                     );
+                    if (personagem.Id == 0)
+                    {
+                        ViewBag.Mensagem = "Cadastro concluído com sucesso!";
+                    }
+                    else
+                    {
+                        ViewBag.Mensagem = "Cadastro editado com sucesso!";
+                    }
 
-                aplicativo.Salvar(personagem);
-
-                return View("Cadastro");
+                    aplicativo.Salvar(personagem);
+                }
+                catch (RegraNegocioException ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                    return View("Cadastro");
+                }
+                catch
+                {
+                    ModelState.AddModelError("", "Ocorreu um erro inesperado. Contate o administrador do sistema.");
+                    return View("Cadastro");
+                }
             }
-            else
+            return View("Retorno");
+        }
+
+        public ActionResult Excluir(int id)
+        {
+            var personagem = aplicativo.ListarPersonagens().Where(per => per.Id == id).ToList().ElementAt(0);
+            aplicativo.Excluir(personagem);
+            ViewBag.Mensagem = "Cadastro excluído com sucesso!";
+            return View("Retorno");
+        }
+
+        public ActionResult Editar(int id)
+        {
+            PopularPaises();
+
+            var personagemSelecionado = aplicativo.BuscarPeloId(id);
+
+            if (personagemSelecionado != null)
             {
-                ModelState.AddModelError("", "Ocorreu um erro no cadastro, tente novamente.");
-                return View("Cadastro");
+                var model = new FichaTecnicaModel()
+                {
+                    Id = personagemSelecionado.Id,
+                    Nome = personagemSelecionado.Nome,
+                    Origem = personagemSelecionado.Origem,
+                    DataNascimento = personagemSelecionado.DataNascimento,
+                    GolpesEspeciais = personagemSelecionado.GolpesEspeciais,
+                    Peso = personagemSelecionado.Peso,
+                    Altura = personagemSelecionado.Altura,
+                    PersonagemOculto = personagemSelecionado.PersonagemOculto,
+                    Imagem = personagemSelecionado.Imagem
+                };
+
+                return View("Cadastro", model);
             }
+
+            return new HttpNotFoundResult();
         }
 
         public ActionResult Sobre()
@@ -118,7 +175,7 @@ namespace StreetFighter.Web.Controllers
                 new SelectListItem() { Value = "CN", Text = "China" },
                 new SelectListItem() { Value = "EN", Text = "Inglaterra" },
                 new SelectListItem() { Value = "KR", Text = "Coréia do Sul" },
-                new SelectListItem() { Value = "MDP", Text = "Morro da Pedra" }
+                new SelectListItem() { Value = "MDP", Text = "Morro da Pedra"}
             };
 
         }
