@@ -1,3 +1,2 @@
-1;Blanka;BR;12/12/1202;12;323;Raios;false;default;
-2;Blanka;BR;12/12/1202;12;323;Raios;false;https://upload.wikimedia.org/wikipedia/pt/a/a1/Blanka_(personagem).jpg;
-3;asdf;BR;12/12/1202;12;323;Raios;false;https://upload.wikimedia.org/wikipedia/pt/a/a1/Blanka_(personagem).jpg;
+1;HueBr;BR;12/12/2012 00:00:00;12;12,2;QuaQuaQuaQua, hue hue Br Br;True;http://www.caralivro.com.br/data/covers/jsxjvCXq53C-1438962514.jpg;
+2;Oculto;MDP;01/01/0001 00:00:00;0;0;??????????;True;default;

@@ -24,14 +24,7 @@ namespace StreetFighter.Aplicativo
 
         public void Salvar(Personagem personagem)
         {
-            if(personagem.Id == 0)
-            {
-                repositorio.IncluirPersonagem(personagem);
-            }
-            else
-            {
-                repositorio.EditarPersonagem(personagem);
-            }
+            repositorio.IncluirPersonagem(personagem);   
         }
 
     }

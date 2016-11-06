@@ -9,6 +9,7 @@ namespace StreetFighter.Web.Models
         [Required]
         public string Nome { get; set; }
 
+        [DefaultValue("default")]
         public string Imagem { get; set; }
         
         [Required]
@@ -16,10 +17,10 @@ namespace StreetFighter.Web.Models
         public DateTime DataNascimento { get; set; }
 
         [Required]
-        public int? Altura { get; set; }
+        public int Altura { get; set; }
 
         [Required]
-        public decimal? Peso { get; set; }
+        public decimal Peso { get; set; }
         
         [Required]
         public string Origem { get; set; }
@@ -29,6 +30,7 @@ namespace StreetFighter.Web.Models
         public string GolpesEspeciais { get; set; }
 
         [DisplayName("Personagem Oculto")]
+        [DefaultValue(false)]
         public bool PersonagemOculto { get; set; }
 
     }

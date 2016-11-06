@@ -67,13 +67,28 @@ namespace StreetFighter.Web.Controllers
             return View("ListaPersonagem");
         }
 
+        [HttpPost]
         public ActionResult Salvar(FichaTecnicaModel model)
         {
             PopularPaises();
             if (ModelState.IsValid)
             {
                 ViewBag.Mensagem = "Cadastro concluído com sucesso.";
-                return View("FichaTecnica", model);
+                Personagem personagem = new Personagem
+                    (
+                    model.Nome,
+                    model.Origem,
+                    model.DataNascimento,
+                    model.Altura,
+                    model.Peso,
+                    model.GolpesEspeciais,
+                    model.PersonagemOculto,
+                    model.Imagem
+                    );
+
+                aplicativo.Salvar(personagem);
+
+                return View("Cadastro");
             }
             else
             {
@@ -103,6 +118,7 @@ namespace StreetFighter.Web.Controllers
                 new SelectListItem() { Value = "CN", Text = "China" },
                 new SelectListItem() { Value = "EN", Text = "Inglaterra" },
                 new SelectListItem() { Value = "KR", Text = "Coréia do Sul" },
+                new SelectListItem() { Value = "MDP", Text = "Morro da Pedra" }
             };
 
         }

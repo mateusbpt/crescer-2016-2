@@ -16,9 +16,9 @@ namespace StreetFighter.Dominio
 
         public DateTime DataNascimento { get; private set; }
 
-        public int? Altura { get; private set; }
+        public int Altura { get; private set; }
 
-        public decimal? Peso { get; private set; }
+        public decimal Peso { get; private set; }
 
         public string GolpesEspeciais { get; private set; }
 
