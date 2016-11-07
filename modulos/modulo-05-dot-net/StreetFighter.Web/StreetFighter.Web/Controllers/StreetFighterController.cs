@@ -1,6 +1,8 @@
 ﻿using StreetFighter.Aplicativo;
 using StreetFighter.Dominio;
+using StreetFighter.Web.Filters;
 using StreetFighter.Web.Models;
+using StreetFighter.Web.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +14,37 @@ namespace StreetFighter.Web.Controllers
     {
         PersonagemAplicativo aplicativo = new PersonagemAplicativo();
 
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult FazerLogin(string login, string senha)
+        {
+            var usuarioAplicativo = new ServicoDeUsuario();
+            Cadastro usuarioAutenticado = usuarioAplicativo.BuscarUsuarioAutenticado(
+                    login, senha);
+
+            if (usuarioAutenticado != null)
+            {
+                ServicoDeAutenticacao.Autenticar(new UsuarioLogadoModel(
+                    usuarioAutenticado.Login));
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.Mensagem = "Verifique seu cadastro e tente novamente";
+            return View("Login");
+        }
+
+        [StreetFighterAutorizador]
         public ActionResult Index()
         {
             return View();
         }
 
+        [StreetFighterAutorizador]
         public ActionResult FichaTecnica(int id)
         {
             var personagemSelecionado = aplicativo.BuscarPeloId(id);
@@ -41,6 +69,7 @@ namespace StreetFighter.Web.Controllers
 
         }
 
+        [StreetFighterAutorizador]
         public ActionResult Cadastro()
         {
             PopularPaises();
@@ -48,11 +77,13 @@ namespace StreetFighter.Web.Controllers
             return View();
         }
 
+        [StreetFighterAutorizador]
         public ActionResult Retorno()
         {
             return View();
         }
 
+        [StreetFighterAutorizador]
         public ActionResult ListaPersonagem(string filtro)
         {
             List<Personagem> personagens = aplicativo.ListarPersonagens(filtro);
@@ -67,12 +98,15 @@ namespace StreetFighter.Web.Controllers
 
         }
 
+        [StreetFighterAutorizador]
         public ActionResult Pesquisar(string filtro)
         {
             return View("ListaPersonagem");
         }
 
+        [StreetFighterAutorizador]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Salvar(FichaTecnicaModel model)
         {
             PopularPaises();
@@ -119,6 +153,7 @@ namespace StreetFighter.Web.Controllers
             return View("Retorno");
         }
 
+        [StreetFighterAutorizador]
         public ActionResult Excluir(int id)
         {
             var personagem = aplicativo.ListarPersonagens().Where(per => per.Id == id).ToList().ElementAt(0);
@@ -127,6 +162,7 @@ namespace StreetFighter.Web.Controllers
             return View("Retorno");
         }
 
+        [StreetFighterAutorizador]
         public ActionResult Editar(int id)
         {
             PopularPaises();
@@ -154,6 +190,7 @@ namespace StreetFighter.Web.Controllers
             return new HttpNotFoundResult();
         }
 
+        [StreetFighterAutorizador]
         public ActionResult Sobre()
         {
             var sobre = new SobreModel()

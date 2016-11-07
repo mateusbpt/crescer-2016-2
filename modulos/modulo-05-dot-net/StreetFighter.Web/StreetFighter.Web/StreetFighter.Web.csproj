@@ -123,12 +123,15 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\StreetFighterController.cs" />
+    <Compile Include="Filters\StreetFighterAutorizador.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\FichaTecnicaModel.cs" />
     <Compile Include="Models\SobreModel.cs" />
+    <Compile Include="Models\UsuarioLogadoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ServicoDeAutenticacao.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -141,6 +144,7 @@
     <Content Include="Views\StreetFighter\Sobre.cshtml" />
     <Content Include="Views\StreetFighter\ListaPersonagem.cshtml" />
     <Content Include="Views\StreetFighter\Retorno.cshtml" />
+    <Content Include="Views\StreetFighter\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
