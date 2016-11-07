@@ -10,7 +10,7 @@ namespace StreetFighter.Repositorio
 {
    public class CadastroRepositorio
     {
-        const string CaminhoDoArquivo = @"C:\Users\GJK\Desktop\Mateus\CWI\crescer-2016-2\modulos\modulo-05-dot-net\Logins.txt";
+        const string CaminhoDoArquivo = @"C:\Users\mateus.teixeira\Documents\github\crescer-2016-2\modulos\modulo-05-dot-net\Logins.txt";
 
         public List<Cadastro> UsuariosCadastrados()
         {

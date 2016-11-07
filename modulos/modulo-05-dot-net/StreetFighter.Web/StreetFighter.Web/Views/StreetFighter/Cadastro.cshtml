@@ -10,6 +10,7 @@
 @using (Html.BeginForm("Salvar","StreetFighter", FormMethod.Post, new { @class = "form-horizontal" }))
 {
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.AntiForgeryToken()
 
     <div class="hidden">
         @Html.LabelFor(model => model.Id, new { @class = "col-sm-2 control-label" })
