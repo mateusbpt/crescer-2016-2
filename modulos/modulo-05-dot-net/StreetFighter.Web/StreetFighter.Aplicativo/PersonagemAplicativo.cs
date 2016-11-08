@@ -11,7 +11,7 @@ namespace StreetFighter.Aplicativo
     public class PersonagemAplicativo
     {
         //Ajustar aqui para Cadastro de Personagem no BD ou no arquivo txt
-        private readonly IPersonagemRepositorio repositorio = new PersonagemRepositorioSQL();
+        private readonly IPersonagemRepositorio repositorio = new PersonagemRepositorioEF();
 
         public List<Personagem> ListarPersonagens(string filtroNome = null)
         {

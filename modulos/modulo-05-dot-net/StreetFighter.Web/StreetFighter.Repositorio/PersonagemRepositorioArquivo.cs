@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace StreetFighter.Repositorio
 {
-    public class PersonagemRepositorio : IPersonagemRepositorio
+    public class PersonagemRepositorioArquivo : IPersonagemRepositorio
     {
         const string CaminhoDoArquivo = @"C:\Users\mateus.teixeira\Documents\github\crescer-2016-2\modulos\modulo-05-dot-net\CadastroPersonagens.txt";
 

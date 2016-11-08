@@ -13,7 +13,7 @@ namespace StreetFighter.Repositorio
     {
         public void EditarPersonagem(Personagem personagem)
         {
-            string conexao = ConfigurationManager.ConnectionStrings["StreetFighterTeste"].ConnectionString;
+            string conexao = ConfigurationManager.ConnectionStrings["StreetFighter"].ConnectionString;
             var parametros = new List<SqlParameter>();
 
             using (var connection = new SqlConnection(conexao))
@@ -44,7 +44,7 @@ namespace StreetFighter.Repositorio
     
         public void ExcluirPersonagem(Personagem personagem)
         {
-            string conexao = ConfigurationManager.ConnectionStrings["StreetFighterTeste"].ConnectionString;
+            string conexao = ConfigurationManager.ConnectionStrings["StreetFighter"].ConnectionString;
 
             using (var connection = new SqlConnection(conexao))
             {
@@ -63,7 +63,7 @@ namespace StreetFighter.Repositorio
 
         public void IncluirPersonagem(Personagem personagem)
         {
-            string conexao = ConfigurationManager.ConnectionStrings["StreetFighterTeste"].ConnectionString;
+            string conexao = ConfigurationManager.ConnectionStrings["StreetFighter"].ConnectionString;
             var parametros = new List<SqlParameter>();
 
             using (var connection = new SqlConnection(conexao))
@@ -94,7 +94,7 @@ namespace StreetFighter.Repositorio
 
         public List<Personagem> ListarPersonagens(string filtro = null)
         {
-            string conexao = ConfigurationManager.ConnectionStrings["StreetFighterTeste"].ConnectionString;
+            string conexao = ConfigurationManager.ConnectionStrings["StreetFighter"].ConnectionString;
             List<Personagem> retorno = new List<Personagem>();
 
             using (var connection = new SqlConnection(conexao))
@@ -123,7 +123,7 @@ namespace StreetFighter.Repositorio
 
         public Personagem PesquisarPeloId(int id)
         {
-            string conexao = ConfigurationManager.ConnectionStrings["StreetFighterTeste"].ConnectionString;
+            string conexao = ConfigurationManager.ConnectionStrings["StreetFighter"].ConnectionString;
             Personagem personagem = null;
 
             using (var connection = new SqlConnection(conexao))

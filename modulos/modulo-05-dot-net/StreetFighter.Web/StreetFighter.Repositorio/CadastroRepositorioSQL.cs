@@ -14,7 +14,7 @@ namespace StreetFighter.Repositorio
         public List<Cadastro> UsuariosCadastrados()
         {
             //Ajustar para um número maior de cadastros
-            string conexao = ConfigurationManager.ConnectionStrings["StreetFighterTeste"].ConnectionString;
+            string conexao = ConfigurationManager.ConnectionStrings["StreetFighter"].ConnectionString;
             List<Cadastro> usuarios = new List<Cadastro>();
 
             using (var connection = new SqlConnection(conexao))

@@ -9,7 +9,7 @@ namespace StreetFighter.Aplicativo
     public class ServicoDeUsuario
     {
         //Ajustar aqui para Cadastro de Usuario no BD ou no arquivo txt
-        private readonly ICadastroRepositorio usuariosCadastrados = new CadastroRepositorioSQL();
+        private readonly ICadastroRepositorio usuariosCadastrados = new CadastroRepositorioEF();
 
         public List<Cadastro> ListarUsuarios()
         {

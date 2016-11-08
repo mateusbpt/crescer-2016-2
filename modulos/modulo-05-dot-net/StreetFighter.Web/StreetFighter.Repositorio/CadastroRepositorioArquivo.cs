@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StreetFighter.Repositorio
 {
-   public class CadastroRepositorio : ICadastroRepositorio
+   public class CadastroRepositorioArquivo : ICadastroRepositorio
     {
         const string CaminhoDoArquivo = @"C:\Users\GJK\Desktop\Mateus\CWI\crescer-2016-2\modulos\modulo-05-dot-net\Logins.txt";
 

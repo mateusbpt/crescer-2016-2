@@ -31,3 +31,11 @@ Insert into Login(Nome, Senha) values ('admin', 'c393315309a671631bd05f746e6e162
 select * from Login
 
 SELECT Nome, Senha from Login
+
+--Adicionando Logins EF:
+
+Insert into Cadastro([Login], Senha) values ('bernardo', '3d0c5ff858a963d439286de99a5cf272') 
+Insert into Cadastro([Login], Senha) values ('nunes', '6567759bef943353814159e104c1cd2e') 
+Insert into Cadastro([Login], Senha) values ('admin', 'c393315309a671631bd05f746e6e1622') 
+
+select * from Personagem

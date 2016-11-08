@@ -2,6 +2,7 @@
 {
     public class UsuarioLogadoModel
     {
+       
         public string Login { get; set; }
 
         public UsuarioLogadoModel(string login)

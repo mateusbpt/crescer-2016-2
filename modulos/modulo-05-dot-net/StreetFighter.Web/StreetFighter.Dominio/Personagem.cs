@@ -8,23 +8,23 @@ namespace StreetFighter.Dominio
 {
     public class Personagem
     {
-        public int Id { get; private set; }
+        public int Id { get; set; }
 
-        public string Nome { get; private set; }
+        public string Nome { get; set; }
 
-        public string Origem { get; private set; }
+        public string Origem { get; set; }
 
-        public DateTime DataNascimento { get; private set; }
+        public DateTime DataNascimento { get; set; }
 
-        public int Altura { get; private set; }
+        public int Altura { get; set; }
 
-        public decimal Peso { get; private set; }
+        public decimal Peso { get; set; }
 
-        public string GolpesEspeciais { get; private set; }
+        public string GolpesEspeciais { get; set; }
 
-        public bool PersonagemOculto { get; private set; }
+        public bool PersonagemOculto { get; set; }
 
-        public string Imagem { get; private set; }
+        public string Imagem { get; set; }
 
         public Personagem
             (
@@ -81,5 +81,7 @@ namespace StreetFighter.Dominio
         }
 
         public DateTime DataMinima { get; } = new DateTime(1800, 01, 01);
+
+        public Personagem() { }
     }
 }
