@@ -6,7 +6,7 @@ using System.Web;
 
 namespace StreetFighter.Web.Models
 {
-    public class FichaTecnicaModel
+    public class PersonagemModel
     {
         public int? Id { get; set; }
         [Required]

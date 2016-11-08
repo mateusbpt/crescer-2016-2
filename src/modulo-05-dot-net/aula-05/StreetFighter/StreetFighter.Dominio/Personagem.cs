@@ -15,6 +15,8 @@ namespace StreetFighter.Dominio
         public Personagem(int id, string nome, string origem)
             : this(nome, origem)
         {
+            if (id == 0)
+                throw new RegraNegocioException("Não é permitido recuperar um personagem já persistido sem informar um Id");
             this.Id = id;
         }
 

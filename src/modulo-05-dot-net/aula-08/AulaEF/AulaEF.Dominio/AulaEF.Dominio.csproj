@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3B4E26BD-49E5-46C9-BFC6-AAF71EEF88CB}</ProjectGuid>
+    <ProjectGuid>{5ECFA0C3-3BB9-4CD4-A764-B5FBCFEC7082}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StreetFighter.Repositorio</RootNamespace>
-    <AssemblyName>StreetFighter.Repositorio</AssemblyName>
+    <RootNamespace>AulaEF.Dominio</RootNamespace>
+    <AssemblyName>AulaEF.Dominio</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,15 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\PersonagemExtension.cs" />
-    <Compile Include="PersonagemRepositorio.cs" />
+    <Compile Include="IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\StreetFighter.Dominio\StreetFighter.Dominio.csproj">
-      <Project>{dc77cfea-fbdf-415c-b4d8-f6d4417f7edf}</Project>
-      <Name>StreetFighter.Dominio</Name>
-    </ProjectReference>
+    <Compile Include="User.cs" />
+    <Compile Include="UserRole.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

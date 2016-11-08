@@ -1,4 +1,5 @@
-﻿using StreetFighter.Aplicativo;
+﻿using AutoMapper;
+using StreetFighter.Aplicativo;
 using StreetFighter.Dominio;
 using StreetFighter.Web.Models;
 using System;
@@ -16,8 +17,18 @@ namespace StreetFighter.Web.Controllers
             return View();
         }
 
-        public ActionResult Cadastro()
+        public ActionResult Manter(int? id)
         {
+            if (id.HasValue)
+            {
+                var aplicativo = new PersonagemAplicativo();
+                var personagem = aplicativo.ObterPersonagensPorId(id.Value);
+                
+                var model = Mapper.Map<Personagem, PersonagemModel>(personagem);
+
+                return View(model);
+            }
+
             return View();
         }
 
@@ -36,32 +47,48 @@ namespace StreetFighter.Web.Controllers
                 return View("Index");
             }
         }
-
-        public ActionResult FichaTecnica()
+        
+        public ActionResult Listar(string filtro)
         {
-            var model = new FichaTecnicaModel();
-            model.Nome = "Blanka";
-            model.Id = 2;
+            var aplicativo = new PersonagemAplicativo();
 
-            return View(model);
+            var model = aplicativo.ObterPersonagensPorNome(filtro).Take(10);
+
+            return View("Listagem", model);
         }
 
-        public ActionResult Salvar(FichaTecnicaModel model)
+        public ActionResult Excluir(int id)
+        {
+            var aplicativo = new PersonagemAplicativo();
+
+            aplicativo.Excluir(id);
+
+            return RedirectToAction("Listar");
+        }
+
+        public ActionResult Salvar(PersonagemModel model)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
                     var aplicativo = new PersonagemAplicativo();
-                    var personagem = new Personagem(model.Nome, model.Origem);
+                    Personagem personagem;
+
+                    if (model.Id.HasValue)
+                        personagem = new Personagem(model.Id.Value, model.Nome, model.Origem);
+                    else
+                        personagem = new Personagem(model.Nome, model.Origem);
 
                     aplicativo.Salvar(personagem);
+
+                    return View("FichaTecnica", model);
                 }
                 catch (RegraNegocioException ex)
                 {
                     ModelState.AddModelError("", ex.Message);
                 }
-                catch
+                catch (Exception)
                 {
                     ModelState.AddModelError("", "Ocorreu um erro inesperado. Contate o administrador do sistema.");
                 }

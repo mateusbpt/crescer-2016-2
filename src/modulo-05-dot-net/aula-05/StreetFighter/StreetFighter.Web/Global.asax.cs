@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AutoMapper;
+using StreetFighter.Dominio;
+using StreetFighter.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +16,8 @@ namespace StreetFighter.Web
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            Mapper.Initialize(config => config.CreateMap<Personagem, PersonagemModel>());
         }
     }
 }

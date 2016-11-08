@@ -45,3 +45,12 @@ body {
             float: left;
             margin-right: 20px;
         }
+
+form.filtro-pesquisa {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filtro-pesquisa input {
+    width: 290px!important;
+}
