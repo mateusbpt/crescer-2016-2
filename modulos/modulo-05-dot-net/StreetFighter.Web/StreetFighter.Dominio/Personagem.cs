@@ -49,10 +49,6 @@ namespace StreetFighter.Dominio
                   imagem
                   )
         {
-            if (nome.ToUpperInvariant().Contains("NUNES"))
-                throw new RegraNegocioException("Não é permitido cadastrar um personagem overpowered.");
-            if (origem.ToUpperInvariant().Contains("MDP"))
-                throw new RegraNegocioException($"Somente um personagem pode ser dessa região e esse personagem não é o { nome }.");
             this.Id = id;
         }
 
@@ -72,6 +68,8 @@ namespace StreetFighter.Dominio
                 throw new RegraNegocioException("Não é permitido cadastrar um personagem overpowered.");
             if (origem.ToUpperInvariant().Contains("MDP"))
                 throw new RegraNegocioException($"Somente um personagem pode ser dessa região e esse personagem não é o { nome }.");
+            if (dataNascimento.CompareTo(DataMinima) < 0)
+                throw new RegraNegocioException($"Não é permitido adicionar uma data menor que {DataMinima.ToShortDateString()}");
             this.Nome = nome;
             this.Origem = origem;
             this.DataNascimento = dataNascimento;
@@ -81,5 +79,7 @@ namespace StreetFighter.Dominio
             this.PersonagemOculto = personagemOculto;
             this.Imagem = imagem;
         }
+
+        public DateTime DataMinima { get; } = new DateTime(1800, 01, 01);
     }
 }

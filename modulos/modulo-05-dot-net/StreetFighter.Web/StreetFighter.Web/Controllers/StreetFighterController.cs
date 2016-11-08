@@ -47,7 +47,7 @@ namespace StreetFighter.Web.Controllers
         [StreetFighterAutorizador]
         public ActionResult FichaTecnica(int id)
         {
-            var personagemSelecionado = aplicativo.BuscarPeloIdSql(id);
+            var personagemSelecionado = aplicativo.BuscarPeloId(id);
 
             if (personagemSelecionado != null)
             {
@@ -86,7 +86,7 @@ namespace StreetFighter.Web.Controllers
         [StreetFighterAutorizador]
         public ActionResult ListaPersonagem(string filtro)
         {
-            List<Personagem> personagens = aplicativo.ListarPersonagensSql(filtro);
+            List<Personagem> personagens = aplicativo.ListarPersonagens(filtro);
 
             if (personagens.Count != 0)
             {

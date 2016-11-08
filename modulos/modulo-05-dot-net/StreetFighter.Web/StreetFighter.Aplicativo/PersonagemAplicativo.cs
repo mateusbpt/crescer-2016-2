@@ -10,26 +10,17 @@ namespace StreetFighter.Aplicativo
 {
     public class PersonagemAplicativo
     {
-        private readonly PersonagemRepositorio repositorio = new PersonagemRepositorio();
+        //Ajustar aqui para Cadastro de Personagem no BD ou no arquivo txt
+        private readonly IPersonagemRepositorio repositorio = new PersonagemRepositorioSQL();
 
         public List<Personagem> ListarPersonagens(string filtroNome = null)
         {
             return repositorio.ListarPersonagens(filtroNome);
         }
 
-        public List<Personagem> ListarPersonagensSql(string filtroNome = null)
-        {
-            return repositorio.ListarPersonagensSql(filtroNome);
-        }
-
         public Personagem BuscarPeloId(int id)
         {
-            return repositorio.ListarPersonagens().Find(personagem => personagem.Id == id);
-        }
-
-        public Personagem BuscarPeloIdSql(int id)
-        {
-            return repositorio.PesquisarPorIDSql(id);
+            return repositorio.PesquisarPeloId(id);
         }
 
         public void Salvar(Personagem personagem)

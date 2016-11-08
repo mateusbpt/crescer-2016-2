@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cadastro.cs" />
+    <Compile Include="ICadastroRepositorio.cs" />
+    <Compile Include="IPersonagemRepositorio.cs" />
     <Compile Include="Personagem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegraNegocioException.cs" />
