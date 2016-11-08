@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace StreetFighter.Repositorio
 {
-    public class PersonagemRepositorio
+    public class PersonagemRepositorio : IPersonagemRepositorio
     {
         const string CaminhoDoArquivo = @"C:\Users\mateus.teixeira\Documents\github\crescer-2016-2\modulos\modulo-05-dot-net\CadastroPersonagens.txt";
 
@@ -108,7 +108,14 @@ namespace StreetFighter.Repositorio
 
         }
 
-        public int VerificaUltimoIdUtilizado()
+        public Personagem PesquisarPeloId(int id)
+        {
+            var auxiliar = ListarPersonagens().Find(personagem => personagem.Id == id);
+
+            return auxiliar;
+        }
+
+        private int VerificaUltimoIdUtilizado()
         {
             var retorno = 0;
 
@@ -121,87 +128,7 @@ namespace StreetFighter.Repositorio
             return retorno;
         }
 
-
-
-
-        public List<Personagem> ListarPersonagensSql(string filtro = null)
-        {
-            string conexao = ConfigurationManager.ConnectionStrings["StreetFighter"].ConnectionString;
-            List<Personagem> retorno = new List<Personagem>();
-
-            using (var connection = new SqlConnection(conexao))
-            {
-                connection.Open();
-
-                string sql = $"SELECT * FROM Personagem WHERE Nome LIKE @param_nome";
-
-                var comando = new SqlCommand(sql, connection);
-
-                comando.Parameters.Add(new SqlParameter("param_nome", $"%{filtro}%"));
-
-                SqlDataReader leitura = comando.ExecuteReader();
-
-                while (leitura.Read())
-                {
-                    Personagem personagem = ConverteParaPersonagem(leitura);
-                    retorno.Add(personagem);
-                }
-
-                connection.Close();
-            }
-
-            return retorno;
-        }
-
-        private Personagem ConverteParaPersonagem(SqlDataReader leitura)
-        {
-            Personagem retorno = new Personagem
-                (
-                id: Convert.ToInt32(leitura["id"]),
-                nome: leitura["nome"].ToString(),
-                origem: leitura["origem"].ToString(),
-                dataNascimento: Convert.ToDateTime(leitura["dataNascimento"]),
-                altura: Convert.ToInt32(leitura["altura"]),
-                peso: Convert.ToDecimal(leitura["peso"]),
-                golpesEspeciais: leitura["golpesEspeciais"].ToString(),
-                personagemOculto: Convert.ToBoolean(leitura["personagemOculto"]),
-                imagem: leitura["imagem"].ToString()
-                );
-
-            return retorno;
-        }
-
-        public Personagem PesquisarPorIDSql(int id)
-        {
-            string conexao = ConfigurationManager.ConnectionStrings["StreetFighter"].ConnectionString;
-            Personagem personagem = null;
-
-            using (var connection = new SqlConnection(conexao))
-            {
-                connection.Open();
-
-                string sql = $"SELECT * FROM Personagem WHERE Id = @param_id";
-
-                var comando = new SqlCommand(sql, connection);
-
-                comando.Parameters.Add(new SqlParameter("param_id", id));
-
-                SqlDataReader leitura = comando.ExecuteReader();
-
-                if (leitura.Read())
-                {
-                    personagem = ConverteParaPersonagem(leitura);
-
-                }
-
-                connection.Close();
-            }
-
-            return personagem;
-        }
-
-
-
+       
     }
 
 }
