@@ -13,9 +13,22 @@ namespace Loja.Web.Servicos
         public static UsuarioServico MontarUsuarioServico()
         {
             UsuarioServico usuarioServico =
-                new UsuarioServico(
-                    new UsuarioRepositorio(), 
-                    new ServicoDeCriptografia());
+                new UsuarioServico
+                (
+                    new UsuarioRepositorio(),
+                    new ServicoDeCriptografia()
+                );
+
+            return usuarioServico;
+        }
+
+        public static ProdutoServico MontarProdutoServico()
+        {
+            ProdutoServico usuarioServico =
+                new ProdutoServico
+                (
+                    new ProdutoRepositorio()
+                );
 
             return usuarioServico;
         }

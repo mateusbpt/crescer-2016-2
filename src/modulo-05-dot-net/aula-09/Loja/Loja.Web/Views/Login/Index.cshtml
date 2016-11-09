@@ -5,6 +5,8 @@
 
 <h2>Login</h2>
 
+<p>@ViewBag.Mensagem</p>
+
 @using (Html.BeginForm("Entrar", "Login", FormMethod.Post))
 {
     @Html.AntiForgeryToken()

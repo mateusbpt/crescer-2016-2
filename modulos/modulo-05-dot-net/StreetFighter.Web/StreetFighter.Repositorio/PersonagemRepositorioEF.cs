@@ -54,7 +54,7 @@ namespace StreetFighter.Repositorio
 
                 if (filtro != null)
                 {
-                    return personagem.Where(per => per.Nome.ToUpperInvariant().Contains(filtro.ToUpperInvariant())).ToList();
+                    return personagem.Where(per => per.Nome.Contains(filtro)).ToList();
                 }
                 else
                 {

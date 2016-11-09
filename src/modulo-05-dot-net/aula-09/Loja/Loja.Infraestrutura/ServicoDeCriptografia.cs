@@ -12,7 +12,8 @@ namespace Loja.Infraestrutura
     {
         public string Criptografar(string texto)
         {
-            return ConverterParaMD5(texto);
+            var salto = $"_{texto}_crescer-2016";
+            return ConverterParaMD5(salto);
         }
 
         private string ConverterParaMD5(string texto)

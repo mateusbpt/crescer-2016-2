@@ -13,5 +13,7 @@ namespace Loja.Dominio
         public string Email { get; set; }
 
         public string Senha { get; set; }
+
+        public Usuario(){}
     }
 }
