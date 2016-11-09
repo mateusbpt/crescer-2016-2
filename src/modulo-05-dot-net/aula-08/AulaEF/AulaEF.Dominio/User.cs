@@ -20,6 +20,7 @@ namespace AulaEF.Dominio
 
         public bool IsActive { get; set; }
 
-        public UserRole Role { get; set; }
+        public int RoleId { get; set; }
+        public virtual UserRole Role { get; set; }
     }
 }

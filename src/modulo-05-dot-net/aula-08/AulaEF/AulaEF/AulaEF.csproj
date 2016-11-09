@@ -59,6 +59,16 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AulaEF.Dominio\AulaEF.Dominio.csproj">
+      <Project>{5ecfa0c3-3bb9-4cd4-a764-b5fbcfec7082}</Project>
+      <Name>AulaEF.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AulaEF.Repository\AulaEF.Repository.csproj">
+      <Project>{671916e7-160f-48fd-8fb1-dd1a4c5060f6}</Project>
+      <Name>AulaEF.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
