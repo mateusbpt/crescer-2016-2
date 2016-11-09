@@ -5,32 +5,34 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@Html.ActionLink("Novo Cadastro", "Cadastro", null, new { @class = "col-sm-4 btn btn-default", id ="botao-cadastro" })
 
-@using (Html.BeginForm("ListaPersonagem","StreetFighter", FormMethod.Get))
-{
-   <form class="navbar-form navbar-right" role="search" id="pesquisa">
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Digite sua pesquisa..." name="filtro">
-        </div>
-        <button type="submit" class="btn btn-default">Pesquisar</button>
-    </form>
-}
+    @Html.ActionLink("Novo Cadastro", "Cadastro", null, new { @class = "col-sm-4 btn btn-default", id = "botao-cadastro" })
 
-<div class="list-group">
-    @if (Model == null)
+    @using (Html.BeginForm("ListaPersonagem", "StreetFighter", FormMethod.Get))
     {
-        <p id="sem-personagens">@ViewBag.ListaVazia</p>
+        <form class="navbar-form navbar-right" role="search" id="pesquisa">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Digite sua pesquisa..." name="filtro">
+            </div>
+            <button type="submit" class="btn btn-default">Pesquisar</button>
+        </form>
     }
-    else
-    {
-        <h4 id="lista-personagens">Personagens Cadastrados: </h4>
-        foreach (var personagem in Model)
+
+    <div class="list-group">
+        @if (Model == null)
         {
-            @Html.ActionLink(personagem.Nome, "FichaTecnica", new { id = personagem.Id }, new { @class = "col-sm-8 btn btn-default" })
-            @Html.ActionLink("Editar", "Editar", new { id = personagem.Id }, new { @class = "col-sm-2 btn btn-default" })
-            @Html.ActionLink("Excluir", "Excluir", new { id = personagem.Id }, new { @class = "col-sm-2 btn btn-default" })
-            
+            <p id="sem-personagens">@ViewBag.ListaVazia</p>
         }
-    }
-</div>
+        else
+        {
+            <h4 id="lista-personagens">Personagens Cadastrados: </h4>
+            foreach (var personagem in Model)
+            {
+                @Html.ActionLink(personagem.Nome, "FichaTecnica", new { id = personagem.Id }, new { @class = "col-sm-8 btn btn-default" })
+                @Html.ActionLink("Editar", "Editar", new { id = personagem.Id }, new { @class = "col-sm-2 btn btn-default" })
+                @Html.ActionLink("Excluir", "Excluir", new { id = personagem.Id }, new { @class = "col-sm-2 btn btn-default" })
+
+            }
+        }
+    </div>
+

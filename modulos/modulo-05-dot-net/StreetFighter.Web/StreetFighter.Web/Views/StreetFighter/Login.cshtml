@@ -18,39 +18,36 @@
 
 <body>
 
-    <div id="titulo">
-        @ViewBag.Title
-    </div>
 
-    <div id="conteudo">
+
+    <div id="conteudo-login">
+
+
 
         <p id="cadastro-fail">@ViewBag.Mensagem</p>
 
         @using (Html.BeginForm("FazerLogin", "StreetFighter", FormMethod.Post))
-        {
+            {
             @Html.AntiForgeryToken()
 
             <div class="form-group">
-                @Html.Label("Login", new { @class = "col-sm-2 control-label" })
-                <div class="col-sm-10">
-                    @Html.TextBox("login", "", new { @class = "form-control" })
+                <div class="col-sm-12" id="username">
+                    @Html.TextBox("login", "", new { @placeholder = "Username", @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group" id="senha">
+                <div class="col-sm-12">
+                    @Html.Password("senha", "", new { @placeholder = "Senha", @class = "form-control" })
                 </div>
             </div>
 
-            <div class="form-group">
-                @Html.Label("Senha", new { @class = "col-sm-2 control-label" })
-                <div class="col-sm-10">
-                     @Html.Password("senha", "", new { @class = "form-control" })
+                <div class="form-group" id="login">
+                    <div id="login" class="col-sm-offset-0 col-sm-6">
+                        <button type="submit">Entrar</button>
+                    </div>
                 </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit">Entrar</button>
-                </div>
-            </div>
         }
-
     </div>
+
 </body>
 </html>
