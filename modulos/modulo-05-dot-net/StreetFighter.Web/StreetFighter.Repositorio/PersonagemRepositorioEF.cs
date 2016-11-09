@@ -50,14 +50,17 @@ namespace StreetFighter.Repositorio
         {
             using (var context = new DatabaseContext())
             {
-                var personagens = context.Personagem;
+                var personagem = context.Personagem;
 
-                if (!String.IsNullOrEmpty(filtro))
+                if (filtro != null)
                 {
-                    personagens.Where(per => per.Nome.ToUpperInvariant().Contains(filtro.ToUpperInvariant()));
+                    return personagem.Where(per => per.Nome.ToUpperInvariant().Contains(filtro.ToUpperInvariant())).ToList();
+                }
+                else
+                {
+                    return personagem.ToList();
                 }
 
-                return personagens.ToList();
             }
         }
 

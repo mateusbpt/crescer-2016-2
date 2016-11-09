@@ -21,5 +21,10 @@ namespace StreetFighter.Web.Filters
 
             return true;
         }
+
+        protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
+        {
+            filterContext.Result = new RedirectResult("/StreetFighter/Login");
+        }
     }
 }
