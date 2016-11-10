@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marvelflix", "Marvelflix\Marvelflix.csproj", "{69ABA6F0-136C-4BA9-AAD4-B3FB87FF32C1}"
 EndProject
@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. WebApp + API", "1. WebAp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Dominio", "2. Dominio", "{A931880B-C81E-4C11-88D0-0118815935AF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Infraestrutura", "3. Infraestrutura", "{BA2623D4-C26F-43AD-BB2D-CE70266DAF38}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Repositorio", "3. Repositorio", "{BA2623D4-C26F-43AD-BB2D-CE70266DAF38}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marvelflix.Repositorio", "Marvelflix.Repositorio\Marvelflix.Repositorio.csproj", "{EC0FC984-CD6B-4FA5-AD11-188F3672560D}"
 EndProject
