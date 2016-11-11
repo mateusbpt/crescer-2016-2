@@ -8,6 +8,12 @@ class TelaPrincipal {
   registrarBindsEventos(self) {
     self.$btnSincronizar = $('#btn-sincronizar-com-marvel');
     self.$btnSincronizar.on('click', self.sincronizar.bind(self));
+    self.$btnProximaPagina = $('#btn-proxima-pagina');
+    self.$btnProximaPagina.on('click', self.obterProximaPagina.bind(self));
+  }
+
+  obterProximaPagina() {
+    this.carregarERenderizarHerois(++this.paginaAtual);
   }
 
   sincronizar() {
@@ -32,25 +38,33 @@ class TelaPrincipal {
     });
   }
 
+  carregarERenderizarHerois(pagina) {
+    return $.get('/api/herois', {
+      pagina: pagina,
+      tamanhoPagina: 5
+    }).done(function(res) {
+      this.renderizarHerois(res).then(() => {
+        this.registrarBindsEventos(this);
+      })
+    }.bind(this));
+  }
+
+  renderizarHerois(heroisServidor) {
+    return marvelflix.render('.tela', 'tela-principal', {
+      chars: heroisServidor.map(function (item) {
+        return {
+          id: item.id,
+          name: item.nome,
+          thumbnail: item.urlThumbnail
+        }
+      })
+    });
+  }
+
   renderizarEstadoInicial() {
     $('.tela-centralizada').removeClass('tela-centralizada');
     this.$elem.show();
-    
-    $.get('/api/herois')
-      .done(function(res) {
-        let renderizar = marvelflix.render('.tela', 'tela-principal', {
-          chars: res.map(function (item) {
-            return {
-              id: item.id,
-              name: item.nome,
-              thumbnail: item.urlThumbnail
-            }
-          })
-        });
-        //renderizar.then(self.registrarBindsEventos.bind(self));
-        renderizar.then(() => {
-          this.registrarBindsEventos(this);
-        })
-      }.bind(this));
+    this.paginaAtual = 1;
+    this.carregarERenderizarHerois(this.pagina);
   }
 }
