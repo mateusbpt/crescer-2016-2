@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Login</h2>
+
+<p>@ViewBag.Mensagem</p>
+
+@using (Html.BeginForm("Entrar", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.TextBox("email", "", new { placeholder = "email" })
+    @Html.Password("senha", "", new { placeholder = "senha" })
+
+    <button type="submit">Entrar</button>
+}

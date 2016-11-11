@@ -1,0 +1,53 @@
+﻿
+@{
+    Layout = null;
+    ViewBag.Title = "Login";
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="http://www.gsarchives.net/gameboyadvance/super_street_fighter_2_turbo_revival/sprites/non-animated/chunli_icon.gif" type="image/x-icon" />
+    <link rel="shortcut icon" href="http://www.gsarchives.net/gameboyadvance/super_street_fighter_2_turbo_revival/sprites/non-animated/chunli_icon.gif" type="image/x-icon" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/estilo-site.css">
+</head>
+
+<body>
+
+
+
+    <div id="conteudo-login">
+
+
+
+        <p id="cadastro-fail">@ViewBag.Mensagem</p>
+
+        @using (Html.BeginForm("FazerLogin", "StreetFighter", FormMethod.Post))
+            {
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <div class="col-sm-12" id="username">
+                    @Html.TextBox("login", "", new { @placeholder = "Username", @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group" id="senha">
+                <div class="col-sm-12">
+                    @Html.Password("senha", "", new { @placeholder = "Senha", @class = "form-control" })
+                </div>
+            </div>
+
+                <div class="form-group" id="login">
+                    <div id="login" class="col-sm-offset-0 col-sm-6">
+                        <button type="submit">Entrar</button>
+                    </div>
+                </div>
+        }
+    </div>
+
+</body>
+</html>

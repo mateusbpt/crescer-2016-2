@@ -1,0 +1,44 @@
+﻿@model List<Loja.Dominio.Produto>
+
+<h1>@ViewBag.Title</h1>
+
+<div style="text-align: right; margin: 20px 10px;">
+    <a href="~/Cadastro/Cadastro" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>Novo Produto</a>
+</div>
+
+@if(Model == null)
+{
+    <h4>@ViewBag.Mensagem</h4>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Preço</th>
+                <th style="width: 40px;">Editar</th>
+                <th style="width: 40px;">Excluir</th>
+            </tr>
+        </thead>
+        @foreach (var produto in Model)
+        {
+            <tr>
+
+                <td>
+                    @produto.Nome
+                </td>
+                <td>
+                    @produto.Valor
+                </td>
+                <td>
+                    <a class="glyphicon glyphicon-pencil" href="~/Cadastro/Editar/@produto.Id"></a>
+                </td>
+                <td>
+                    <a class="glyphicon glyphicon-trash" href="~/Cadastro/Excluir/@produto.Id"></a>
+                </td>
+            </tr>
+        }
+    </table>
+}
+
