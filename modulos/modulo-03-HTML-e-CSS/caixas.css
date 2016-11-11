@@ -1,0 +1,50 @@
+
+.box-medio {
+    width: 50px;
+    height: 50px;
+}
+
+.box-grande {
+    width: 250px;
+    height: 250px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+}
+
+.footer {
+    position: fixed;
+    top: 600px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+}
+
+.absoluto {
+    position: absolute;   
+}
+
+.relative{
+    position: relative;
+    transition: all 15s;
+}
+    
+.relative:hover {
+    transform: rotate(360deg);
+    border-radius: 150px;
+   
+}
+
+.laranja {
+    background-color: darkorange;
+}
+
+.vermelho {
+    background-color: red;
+}
+
