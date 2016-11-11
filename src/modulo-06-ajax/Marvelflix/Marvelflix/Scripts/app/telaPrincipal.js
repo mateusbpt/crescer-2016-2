@@ -6,26 +6,36 @@ class TelaPrincipal {
   }
 
   registrarBindsEventos(self) {
-    self.$btnNovoHeroi = $('#btn-novo-heroi');
-    self.$btnNovoHeroi.on('click', self.cadastrarNovoHeroi);
+    self.$btnSincronizar = $('#btn-sincronizar-com-marvel');
+    self.$btnSincronizar.on('click', self.sincronizar.bind(self));
   }
 
-  cadastrarNovoHeroi() {
-    console.log('Cadastrou!!!');
-    $.post('/api/herois', {
-      nome: 'Super Debug',
-      urlThumbnail: 'http://www.ironhenry.com/wp-content/uploads/2013/06/debug.png'
-    }).done((res) => {
+  sincronizar() {
+    let self = this;
+    let url = 'https://gateway.marvel.com:443/v1/public/characters?apikey=7ae597c1277cc37f2a4001139b3e2199&orderBy=-modified&limit=20';
+    $.get(url).then((res) => {
+      res.data.results.forEach(
+        (heroiMarvel) => {
+          let heroiASerCriado = {
+            nome: heroiMarvel.name,
+            urlThumbnail: `${heroiMarvel.thumbnail.path}.${heroiMarvel.thumbnail.extension}`
+          }
+          self.cadastrarNovoHeroi(heroiASerCriado)
+        }
+      )
+    });
+  }
+
+  cadastrarNovoHeroi(heroi) {
+    $.post('/api/herois', heroi).done((res) => {
       console.log('novo id', res.id);
     });
-    
   }
 
   renderizarEstadoInicial() {
     $('.tela-centralizada').removeClass('tela-centralizada');
     this.$elem.show();
-    //let self = this;
-
+    
     $.get('/api/herois')
       .done(function(res) {
         let renderizar = marvelflix.render('.tela', 'tela-principal', {
