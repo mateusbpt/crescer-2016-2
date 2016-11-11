@@ -30,7 +30,7 @@ namespace Loja.Web.Controllers
             if (usuario != null)
             {
                 ServicoDeAutenticacao.Autenticar(new UsuarioLogadoModel(usuario.Email));
-                return RedirectToAction("Lista", "Cadastro");
+                return RedirectToAction("Index", "Cadastro");
             }
 
             ViewBag.Mensagem = "E-mail ou senha incorreta, tente novamente.";
