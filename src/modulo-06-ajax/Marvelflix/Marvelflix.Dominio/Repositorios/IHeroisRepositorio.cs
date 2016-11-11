@@ -7,5 +7,6 @@ namespace Marvelflix.Dominio
     {
         IEnumerable<Heroi> Todos();
         Heroi PorId(int id);
+        void Adicionar(Heroi heroi);
     }
 }

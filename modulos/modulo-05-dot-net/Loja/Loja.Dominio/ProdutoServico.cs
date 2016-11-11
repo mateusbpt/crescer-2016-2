@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Loja.Dominio
 {
@@ -30,7 +26,7 @@ namespace Loja.Dominio
 
             foreach (var prod in ListarProdutos())
             {
-                if (produto.Nome.ToUpperInvariant().Equals(prod.Nome.ToUpperInvariant()))
+                if (produto.Nome.ToUpperInvariant().Equals(prod.Nome.ToUpperInvariant()) && (produto.Id == 0 | produto.Id != prod.Id))
                 {
                     throw new RegraNegocioException("Não se pode cadastrar dois produtos com o mesmo nome.");
                 }

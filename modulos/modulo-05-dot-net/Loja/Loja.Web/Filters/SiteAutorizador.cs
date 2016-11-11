@@ -19,9 +19,9 @@ namespace Loja.Web.Filters
             return true;
         }
 
-        //  protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
-        //{
-        //     filterContext.Result = new RedirectResult("Index");
-        //  }
+          protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
+        {
+             filterContext.Result = new RedirectResult("Login");
+         }
     }
 }

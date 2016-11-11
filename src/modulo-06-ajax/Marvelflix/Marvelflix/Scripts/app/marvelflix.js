@@ -32,13 +32,15 @@ marvelflix.loadTemplate = function(name) {
 
 marvelflix.render = function(viewElementSelector, templateName, data) {
 
-  this.loadTemplate(templateName).then(
-    function(templateFn) {
-      let rendered = templateFn(data);
-      $(viewElementSelector).html(rendered);
-    }
-  );
-
+  return new Promise((resolve, reject) => {
+    this.loadTemplate(templateName).then(
+     function (templateFn) {
+       let rendered = templateFn(data);
+       $(viewElementSelector).html(rendered);
+       resolve();
+     }
+   );
+  });
 }
 
 marvelflix.iniciar = function() {

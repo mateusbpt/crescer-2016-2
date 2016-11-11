@@ -10,7 +10,7 @@ namespace Loja.Web.Controllers
     [SiteAutorizador]
     public class CadastroController : Controller
     {
-        public ActionResult Lista()
+        public ActionResult Index()
         {
             ProdutoServico usuarioServico = ServicoDeDependencias.MontarProdutoServico();
             var produtos = usuarioServico.ListarProdutos();
@@ -20,7 +20,7 @@ namespace Loja.Web.Controllers
                 return View(produtos);
             }
 
-            ViewBag.ListaVazia = "Não há personagens cadastrados...";
+            ViewBag.ListaVazia = "Não há produtos cadastrados...";
             return View();
       
         }

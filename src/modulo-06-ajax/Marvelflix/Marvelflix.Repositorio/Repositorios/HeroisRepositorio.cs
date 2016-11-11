@@ -19,7 +19,18 @@ namespace Marvelflix.Repositorio
         {
             using (var contexto = new ContextoDeDados())
             {
-                return contexto.Heroi.Find(id);
+                return contexto.Heroi
+                    .Include(_ => _.Comics)
+                    .SingleOrDefault(_ => _.Id == id);
+            }
+        }
+
+        public void Adicionar(Heroi heroi)
+        {
+            using (var contexto = new ContextoDeDados())
+            {
+                contexto.Heroi.Add(heroi);
+                contexto.SaveChanges();
             }
         }
     }
