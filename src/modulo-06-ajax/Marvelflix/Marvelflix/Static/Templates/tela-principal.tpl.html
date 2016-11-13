@@ -2,8 +2,9 @@
   <h2 class="titulo">Bem vindo!</h2>
 </div>
 <div class="row">
-  <button id="btn-sincronizar-com-marvel">Sincronizar com Marvel</button>
-  <button id="btn-proxima-pagina">Proxima pagina</button>
+  <button class="btn" id="btn-sincronizar-com-marvel">Sincronizar com Marvel</button>
+  <button class="btn" id="btn-pagina-anterior"><< Anterior</button>
+  <button class="btn" id="btn-proxima-pagina">Proxima >></button>
 </div>
 <div class="row">
   <section id="listagem-herois" class="col-md-6">
@@ -18,14 +19,5 @@
     {{/each}}
     </ul>
   </section>
-  <section id="listagem-comics" class="col-md-6">
-    <img class="capa-comic" src="{{ selecionado.comic_thumbnail }}">
-    <ul>
-    {{#each selecionado.comics}}
-      <li>
-        <span class="nome-item">{{ title }}</span>
-      </li>
-    {{/each}}
-    </ul>
-  </section>
+  <section id="listagem-comics" class="col-md-6"></section>
 </div>

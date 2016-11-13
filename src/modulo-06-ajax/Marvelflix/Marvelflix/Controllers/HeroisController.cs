@@ -12,11 +12,20 @@ namespace Marvelflix.Controllers
         private IHeroisRepositorio herois = ServicoDeDependencias.MontarHeroisRepositorio();
 
         // GET: api/Herois
-        public IEnumerable<Heroi> GetHeroi(int pagina = 1, int tamanhoPagina = 5)
+        public IHttpActionResult GetHeroi(int pagina = 1, int tamanhoPagina = 5)
         {
             //pagina = pagina ?? 1;
             //tamanhoPagina = tamanhoPagina ?? 5;
-            return herois.Todos(pagina, tamanhoPagina);
+
+            // simulando lentidão
+            //System.Threading.Thread.Sleep(1500);
+
+            var registros = herois.Todos(pagina, tamanhoPagina);
+
+            return Ok(new {
+                total = herois.ContarRegistros(),
+                dados = registros
+            });
         }
 
         // GET: api/Herois/5
