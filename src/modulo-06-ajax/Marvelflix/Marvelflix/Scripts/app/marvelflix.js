@@ -1,5 +1,9 @@
 let marvelflix = {};
 
+marvelflix.toggleLoader = () => {
+  ['.loader', '.tela'].forEach(seletor => $(seletor).toggle());
+};
+
 marvelflix.renderizarTela = function(nome) {
 
   // escondendo todas as telas antes de renderizar a tela correta
@@ -20,13 +24,13 @@ marvelflix.renderizarTela = function(nome) {
 
 marvelflix.loadTemplate = function(name) {
 
-  let deferred = $.Deferred();
-  $.get(`/static/templates/${name}.tpl.html`).then(
-    function(template) {
-      deferred.resolve(Handlebars.compile(template));
-    }
-  );
-  return deferred.promise();
+  return new Promise((resolve, reject) => {
+    $.get(`/static/templates/${name}.tpl.html`).then(
+      (template) => {
+        resolve(Handlebars.compile(template));
+      }
+    )
+  });
 
 }
 

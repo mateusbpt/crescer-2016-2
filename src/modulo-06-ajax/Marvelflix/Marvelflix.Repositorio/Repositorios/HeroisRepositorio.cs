@@ -7,6 +7,12 @@ namespace Marvelflix.Repositorio
 {
     public class HeroisRepositorio : IHeroisRepositorio
     {
+        public int ContarRegistros()
+        {
+            using (var contexto = new ContextoDeDados())
+                return contexto.Heroi.Count();
+        }
+
         public IEnumerable<Heroi> Todos(int pagina, int tamanhoPagina)
         {
             // tamanhoPagina = 1
