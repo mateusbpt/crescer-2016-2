@@ -19,6 +19,18 @@
         @Html.LabelFor(m => m.Nome)
         @Html.TextBoxFor(m => m.Nome)
 
+        @Html.LabelFor(m => m.Descricao)
+        @Html.TextBoxFor(m => m.Descricao)
+
+        @Html.LabelFor(m => m.Preco)
+        @Html.TextBoxFor(m => m.Preco)
+
+        @Html.LabelFor(m => m.Estoque)
+        @Html.TextBoxFor(m => m.Estoque)
+
+        @Html.LabelFor(m => m.Raro)
+        @Html.CheckBoxFor(m=> m.Raro)
+        
         <button type="submit">Salvar</button>
     }
 </div>

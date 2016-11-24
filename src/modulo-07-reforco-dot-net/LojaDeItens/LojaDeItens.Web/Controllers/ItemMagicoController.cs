@@ -44,6 +44,23 @@ namespace LojaDeItens.Web.Controllers
         [ValidateAntiForgeryToken]
         public JsonResult Salvar(ItemParaEdicaoViewModel model)
         {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    itemMagicoServico.Salvar(model);
+                }
+                catch (ItemMagicoException ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
+                catch
+                {
+                    ModelState.AddModelError("", "Ocorreu um erro inesperado. Contate o administrador do sistema.");
+                }
+            }
+          
+
             return Json(new { Mensagem = "Cadastro efetuado com sucesso." }, JsonRequestBehavior.AllowGet);
         }
 
