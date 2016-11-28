@@ -202,7 +202,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\ItemMagico\Index.cshtml" />
-    <Content Include="Views\ItemMagico\_ListagemDeItensMagicos.cshtml" />
+    <Content Include="Views\Shared\_ListagemDeItensMagicos.cshtml" />
     <Content Include="Views\ItemMagico\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>

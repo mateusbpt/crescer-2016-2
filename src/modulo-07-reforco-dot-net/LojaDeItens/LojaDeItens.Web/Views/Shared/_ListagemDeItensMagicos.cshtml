@@ -11,6 +11,7 @@
             <th>#</th>
             <th>Id</th>
             <th>Nome</th>
+            <th>Valor</th>
         </tr>
     </thead>
     <tbody>
@@ -22,13 +23,14 @@
                         @if (item.PodeEditar)
                         {
                             @*<a href="/ItemMagico/Editar?id=1">Editar</a>*@
-                            @Html.ActionLink("Editar", "Editar", "ItemMagico", new { id = item.Id }, null)
+                            @Html.ActionLink("Editar", "Editar", "ItemMagico", new { id = item.Id }, new { @class="btn btn-success"})
                         }
 
-                        <button onclick="itemMagicoIndex.excluir(@item.Id)">Excluir</button>
+                        <button class="btn btn-danger" onclick="itemMagicoIndex.excluir(@item.Id)">Excluir</button>
                     </td>
                     <td>@item.Id</td>
                     <td>@item.Nome</td>
+                    <td>@(item.Preco) $</td>
                 </tr>
             }
         }
