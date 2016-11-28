@@ -53,9 +53,8 @@ public class MeuFileUtils {
 
     public static void mk(final String nome) {
         File arquivo = new File(nome);
-        String auxiliar = nome.substring(nome.length() - 4);
 
-        if (auxiliar.contains(".")) {
+        if (ehArquivo(nome)) {
             try {
                 arquivo.createNewFile();
                 System.out.println("Arquivo criado com sucesso");
@@ -63,17 +62,20 @@ public class MeuFileUtils {
                 System.out.println("Ocorreu um erro ao criar o arquivo");
             }
         } else {
-            arquivo.mkdirs();
-            System.out.println("Diretório criado com sucesso");
+            try {
+                arquivo.mkdirs();
+                System.out.println("Diretório criado com sucesso");
+            } catch (Exception e) {
+                 System.out.println("Ocorreu um erro, verifique o caminho informado");
+            }
         }
 
     }
 
     public static void rm(final String nome) {
         File arquivo = new File(nome);
-        String auxiliar = nome.substring(nome.length() - 4);
 
-        if (arquivo.exists() && auxiliar.contains(".")) {
+        if (arquivo.exists() && ehArquivo(nome)) {
             arquivo.delete();
             System.out.println("Arquivo removido com sucesso");
         } else {
@@ -83,9 +85,8 @@ public class MeuFileUtils {
 
     public static void ls(final String nome) {
         File arquivo = new File(nome);
-        String auxiliar = nome.substring(nome.length() - 4);
 
-        if (auxiliar.contains(".") && arquivo.exists()) {
+        if (arquivo.exists() && ehArquivo(nome)) {
             System.out.println(arquivo.getAbsolutePath());
         } else {
             File[] arquivos = arquivo.listFiles();
@@ -94,5 +95,16 @@ public class MeuFileUtils {
                 System.out.println(arq.getName());
             }
         }
+    }
+
+    private static boolean ehArquivo(String frase) {
+
+        if (frase.length() < 4) {
+            return false;
+        }
+
+        String auxiliar = frase.substring(frase.length() - 4);
+
+        return auxiliar.contains(".");
     }
 }
