@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition template="template.xhtml" 
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:define name="form">
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel for="nome" value="#{bundle.pessoa_nome}"></h:outputLabel>
+                <h:inputText id="nome" value="#{hello.pessoa.nome}"/>
+
+                <h:outputLabel for="sobrenome" value="Sobrenome"></h:outputLabel>
+                <h:inputText id="sobrenome" value="#{hello.pessoa.sobrenome}"/>
+
+            </h:panelGrid>
+
+            <h:commandButton type="submit" value="Enviar"/>
+
+            <h1><h:outputText value="#{hello.pessoa}"/></h1>
+
+        </h:form>
+    </ui:define>
+</ui:composition>

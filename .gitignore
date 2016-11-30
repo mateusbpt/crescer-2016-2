@@ -53,3 +53,5 @@ bld/
 [Bb]uild[Ll]og.*
 /src/modulo-09-java/aula2/target/
 /modulos/modulo-08-java/aula4/target/
+/modulos/modulo-08-java/aula5/target/
+/modulos/modulo-08-java/cadastrofilmes/target/
