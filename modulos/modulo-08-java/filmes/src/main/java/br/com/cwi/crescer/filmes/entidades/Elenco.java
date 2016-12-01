@@ -1,9 +1,10 @@
-package br.com.cwi.crescer.cadastrofilmes.entidades;
+package br.com.cwi.crescer.filmes.entidades;
 
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
 import static javax.persistence.GenerationType.SEQUENCE;
+import static javax.persistence.CascadeType.ALL;
 
 @Entity
 public class Elenco implements Serializable {
@@ -19,7 +20,7 @@ public class Elenco implements Serializable {
     @Column(name = "NOME_ELENCO")
     private String nome;
 
-    @OneToMany
+    @OneToMany(cascade = ALL)
     private List<Ator> atores;
 
     public int getId() {

@@ -1,4 +1,4 @@
-package br.com.cwi.crescer.cadastrofilmes.entidades;
+package br.com.cwi.crescer.cadastrodefilmes.entidades;
 
 import java.io.Serializable;
 import java.util.List;
