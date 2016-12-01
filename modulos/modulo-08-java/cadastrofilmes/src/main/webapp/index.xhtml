@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+    <head>
+        <title>Início</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    </head>
+    <body>
+
+        <h:form>
+            <p:growl id="messages" showDetail="true"/>
+            <p:menuButton value="Opções">
+                <p:separator />
+                <p:menuitem value="Cadastro de Ator" actionListener="#" update="messages" icon="ui-icon-disk"/>
+                <p:separator />
+                <p:menuitem value="Cadastro de Gênero" actionListener="#" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+                <p:separator />
+                <p:menuitem value="Cadastro de Classificacao" actionListener="#" ajax="false" icon="ui-icon-close"/>
+                <p:separator />
+            </p:menuButton>
+        </h:form>
+
+
+    </body>
+</html>

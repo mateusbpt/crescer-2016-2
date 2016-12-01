@@ -17,4 +17,21 @@ public class Ator implements Serializable {
     @Basic(optional = false)
     @Column(name = "NOME_ATOR")
     private String Nome;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return Nome;
+    }
+
+    public void setNome(String Nome) {
+        this.Nome = Nome;
+    }
+
 }

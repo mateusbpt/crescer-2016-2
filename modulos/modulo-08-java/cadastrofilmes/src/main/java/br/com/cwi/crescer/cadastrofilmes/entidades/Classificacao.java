@@ -17,8 +17,32 @@ public class Classificacao implements Serializable {
     @Basic(optional = false)
     @Column(name = "DESCRICAO_CLASSIFICACAO")
     private String Descricao;
-    
+
     @Column(name = "IDADE_CLASSIFICACAO")
     private int idade;
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int Id) {
+        this.Id = Id;
+    }
+
+    public String getDescricao() {
+        return Descricao;
+    }
+
+    public void setDescricao(String Descricao) {
+        this.Descricao = Descricao;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
 
 }
