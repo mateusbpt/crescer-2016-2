@@ -4,10 +4,16 @@
         <jta-data-source>jdbc/crescer</jta-data-source>
         <class>br.com.cwi.crescer.aula4.Filho</class>
         <class>br.com.cwi.crescer.aula4.Pessoa</class>
+        <class>br.com.cwi.crescer.aula5.entity.Ator</class>
+        <class>br.com.cwi.crescer.aula5.entity.Classificacao</class>
+        <class>br.com.cwi.crescer.aula5.entity.Elenco</class>
+        <class>br.com.cwi.crescer.aula5.entity.Filme</class>
+        <class>br.com.cwi.crescer.aula5.entity.Genero</class>
+        <class>br.com.cwi.crescer.aula5.entity.Idioma</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <!--Descomentar para criar recriar as tabela.-->
-            <!--<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>-->
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
         </properties>
     </persistence-unit>
 </persistence>
